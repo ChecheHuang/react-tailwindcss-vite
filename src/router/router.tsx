@@ -20,6 +20,12 @@ const router: Route[] = [
     name: '/headlessUi',
   },
   {
+    path: '/shadcn',
+    element: LazyLoad(import('@/views/shadcn/page')),
+    label: '/shadcn',
+    name: '/shadcn',
+  },
+  {
     path: '/*',
     element: LazyLoad(import('@/views/404/page')),
     label: 'Not Found',
