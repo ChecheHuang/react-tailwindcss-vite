@@ -1,7 +1,7 @@
 import React from 'react'
-import Menu from './Menu'
-import Header from './Header'
-import Contain from './Contain'
+import Menu from './components/Menu'
+import Header from './components/Header'
+import Contain from './components/Contain'
 const data = [
   {
     key: '/',

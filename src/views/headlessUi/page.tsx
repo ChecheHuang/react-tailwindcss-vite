@@ -1,8 +1,8 @@
-import Menu from './Menu'
-import AutoComplete from './AutoComplete'
-import Select from './Select'
+import Menu from './components/Menu'
+import AutoComplete from './components/AutoComplete'
+import Select from './components/Select'
 import { useState } from 'react'
-import ConfirmModal from './ConfirmModal'
+import ConfirmModal from './components/ConfirmModal'
 import { IoTrash } from 'react-icons/io5'
 
 const HeadlessUI = () => {
