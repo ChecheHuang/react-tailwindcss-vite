@@ -72,7 +72,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('daisyui')],
+  plugins: [   require('tailwind-scrollbar')({ nocompatible: true }),require('tailwindcss-animate'), require('daisyui')],
   // daisyUI config (optional - here are the default values)
   daisyui: {
     themes: [
