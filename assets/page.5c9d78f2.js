@@ -1,1 +1,0 @@
-import{b as s,P as r,j as e,R as a,T as o,U as i}from"./index.8be100e2.js";const u=new o({defaultOptions:{queries:{staleTime:1e3*60*5}}});function c(){async function t(){i.get("/users").then(function(n){console.log(n.data)})}return e("button",{className:"btn",onClick:t,children:"ReactQuery"})}function d(){return s(r,{client:u,children:[e(c,{}),e(a,{})]})}export{d as default};
