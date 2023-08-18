@@ -1,13 +1,17 @@
-import React from 'react'
 import { useDispatch, useSelector } from '../store'
-import { SizeType, changeSize } from '../store/modules/themeSlice'
+import { SizeType, changeSize, changeTheme } from '../store/modules/themeSlice'
 import { cn } from '@/lib/utils'
+import { MoonStar, SunMoon } from 'lucide-react'
 function Header() {
   const dispatch = useDispatch()
-  const { size } = useSelector((state) => state.theme)
+  const redux = useSelector((state) => state.theme)
+  const { size, theme } = redux
 
-  const handleChangeTheme = (value: SizeType) => () => {
+  const handleChangeSize = (value: SizeType) => () => {
     dispatch(changeSize(value))
+  }
+  const handleChangeTheme = () => {
+    dispatch(changeTheme())
   }
   const btnClassName = new Map<SizeType, string>([
     [SizeType.small, 'btn-sm'],
@@ -17,9 +21,12 @@ function Header() {
 
   return (
     <div className="w-full h-20 bg-slate-300 flex justify-center items-center">
-      <div className="btn-group ">
+      <button onClick={handleChangeTheme} className="btn btn-sm btn-ghost">
+        {theme === 'dark' ? <SunMoon /> : <MoonStar />}
+      </button>
+      <div className="btn-group w-52 flex justify-center ">
         <button
-          onClick={handleChangeTheme(SizeType.small)}
+          onClick={handleChangeSize(SizeType.small)}
           className={cn(
             'btn',
             btnClassName.get(size),
@@ -29,7 +36,7 @@ function Header() {
           小
         </button>
         <button
-          onClick={handleChangeTheme(SizeType.middle)}
+          onClick={handleChangeSize(SizeType.middle)}
           className={cn(
             'btn',
             btnClassName.get(size),
@@ -39,7 +46,7 @@ function Header() {
           中
         </button>
         <button
-          onClick={handleChangeTheme(SizeType.large)}
+          onClick={handleChangeSize(SizeType.large)}
           className={cn(
             'btn',
             btnClassName.get(size),

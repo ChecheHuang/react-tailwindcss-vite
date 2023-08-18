@@ -1,11 +1,13 @@
-import React from 'react'
 import { Provider } from 'react-redux'
 import store from './store'
 import Header from './components/Header'
+import Container from './components/Container'
+
 function Redux() {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <Header />
+      <Container />
     </div>
   )
 }

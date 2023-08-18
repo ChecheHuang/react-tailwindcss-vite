@@ -111,7 +111,7 @@ async function printDirectoryContents(
         meta,
         closestLayout,
       }
-      if (routePath === '/404') {
+      if (routePath === '/notfound') {
         item.meta = {
           label: 'Not Found',
           name: 'Not Found',
