@@ -20,6 +20,18 @@ const router: Route[] = [
     name: '/headlessUi',
   },
   {
+    path: '/lottery',
+    element: LazyLoad(import('@/views/lottery/page')),
+    label: '/lottery',
+    name: '/lottery',
+  },
+  {
+    path: '/react-query',
+    element: LazyLoad(import('@/views/react-query/page')),
+    label: '/react-query',
+    name: '/react-query',
+  },
+  {
     path: '/shadcn',
     element: LazyLoad(import('@/views/shadcn/page')),
     label: '/shadcn',

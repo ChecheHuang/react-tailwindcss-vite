@@ -10,5 +10,8 @@ module.exports = {
     'prettier/prettier': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    'no-unused-vars': 'off',
+    'no-unused-expressions': 'off',
   },
-};
+}
