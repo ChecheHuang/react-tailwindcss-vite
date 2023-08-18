@@ -1,5 +1,6 @@
 import LazyLoad from './LazyLoad/LazyLoad'
-
+import { RedditOutlined, SlidersOutlined } from '@ant-design/icons'
+import PageAntdUi from '@/views/ui/antd/page'
 const router: Route[] = [
   {
     path: '/project',
@@ -41,6 +42,37 @@ const router: Route[] = [
     label: '/ui',
     name: '/ui',
     children: [
+      {
+        path: '/ui/antd',
+        element: LazyLoad(import('@/views/ui/antd/layout')),
+        name: 'Antd',
+        label: 'Antd',
+        children: [
+          {
+            path: '/ui/antd',
+            element: <PageAntdUi />,
+            name: '首頁',
+            label: '首頁',
+            icon: <RedditOutlined />,
+          },
+          {
+            path: '/ui/antd/store_upload_list',
+            element: LazyLoad(import('@/views/ui/antd/store_upload_list/page')),
+            name: '表格範例',
+            label: '表格範例',
+            icon: <SlidersOutlined />,
+          },
+          {
+            path: '/ui/antd/store_upload_list/:id',
+            element: LazyLoad(
+              import('@/views/ui/antd/store_upload_list/[id]/page')
+            ),
+            name: '細節資料',
+            icon: <SlidersOutlined />,
+            label: '細節資料',
+          },
+        ],
+      },
       {
         path: '/ui/shadcn',
         element: LazyLoad(import('@/views/ui/shadcn/page')),

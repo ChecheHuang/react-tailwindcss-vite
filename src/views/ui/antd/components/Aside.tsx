@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import type { MenuProps } from 'antd'
-import { Menu } from 'antd'
+import { Image, Menu } from 'antd'
 import { cn } from '@/lib/utils'
 import router, { Route } from '@/router/router'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { ArrowBigLeftDashIcon, MenuIcon } from 'lucide-react'
-import ProfileDrawer from './ProfileDrawer'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 type MenuItem = Required<MenuProps>['items'][number]
 
+interface AsideProps {
+  collapsed: boolean
+}
 const storageSelectKeys = JSON.parse(
   sessionStorage.getItem('selectKeys') || '[]'
 )
-export default function FixedButton() {
+const storageOpenKeys = JSON.parse(sessionStorage.getItem('openKeys') || '[]')
+const Aside: React.FC<AsideProps> = ({ collapsed }) => {
+  const antdRouter = router
+    .find((value) => value.path === '/ui')
+    ?.children?.find((value) => value.path === '/ui/antd')?.children
+  // .find((value) => value.name === "/ui/antd")
+  console.log(antdRouter)
+
   const navigate = useNavigate()
   const currentRoute = useLocation()
   const [selectKeys, setSelectKeys] = useState<string[]>(storageSelectKeys)
-  const { menu, keyArr } = convertRoutesToMenu(
-    router.filter((value) => !!value.path)
-  )
+  const [openKeys, setOpenKeys] = useState<string[]>(storageOpenKeys)
+  const { menu, keyArr } = convertRoutesToMenu(antdRouter!)
   const handleOpenChange: MenuProps['onOpenChange'] = (keys: string[]) => {
     const key = [keys[keys.length - 1]]
+    setOpenKeys(key)
     sessionStorage.setItem('openKeys', JSON.stringify(key))
   }
   const handleLink: MenuProps['onClick'] = (e) => {
@@ -37,49 +45,42 @@ export default function FixedButton() {
     )
     setSelectKeys([currentRoute.pathname] as string[])
   }, [currentRoute.pathname])
-
-  return <ProfileDrawer />
-
   return (
-    <div className="drawer drawer-end z-[1000]">
-      <input id="drawer-id" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
-        <label
-          htmlFor="drawer-id"
-          className="drawer-button btn btn-sm btn-ghost fixed bottom-1 right-1 z-[1000]"
-        >
-          <MenuIcon />
-        </label>
-      </div>
-      <div className="drawer-side">
-        <label htmlFor="drawer-id" className="drawer-overlay"></label>
-        <div
-          className={cn(
-            ' overflow-y-scroll w-60 h-full  text-base-content bg-gradient-to-b from-blue-200 to-pink-200 relative duration-300 ease-in-out scrollbar-none '
-          )}
-        >
-          <Menu
-            style={{ backgroundColor: 'transparent' }}
-            onClick={handleLink}
-            onOpenChange={handleOpenChange}
-            mode="inline"
-            theme="light"
-            selectedKeys={selectKeys}
-            items={menu}
+    <div
+      className={cn(
+        'max-h-[100vh] overflow-y-scroll bg-[#001529] duration-300 ease-in-out scrollbar-none ',
+        collapsed ? 'w-20' : ' w-[200px]'
+      )}
+    >
+      <Link to={'/setting'}>
+        <div className="sticky top-0 z-10 flex items-center justify-center gap-3 bg-dark  h-16 ">
+          <Image
+            width={50}
+            className="rounded-md"
+            src={
+              'https://images.pexels.com/photos/434341/pexels-photo-434341.jpeg?auto=compress&cs=tinysrgb&w=600'
+            }
+            alt=""
           />
-          <div className="w-full h-screen flex flex-col gap-2 scroll_y">
-            <button
-              className="absolute bottom-0 border-2  btn shadow-2xl btn-ghost text-primary"
-              onClick={() => navigate(-1)}
-            >
-              <ArrowBigLeftDashIcon />
-            </button>
-          </div>
+          {!collapsed && <div className="break-keep text-white ">Antd後台</div>}
         </div>
-      </div>
+      </Link>
+
+      <Menu
+        inlineCollapsed={collapsed}
+        onClick={handleLink}
+        onOpenChange={handleOpenChange}
+        mode="inline"
+        theme="dark"
+        selectedKeys={selectKeys}
+        openKeys={openKeys}
+        items={menu}
+      />
     </div>
   )
 }
+
+export default Aside
 
 function convertRoutesToMenu(routes: Route[]): {
   menu: MenuItem[]
@@ -109,10 +110,10 @@ function convertRoutesToMenu(routes: Route[]): {
     const menuItem: MenuItem = {
       key: children ? path + '/layout' : path,
       icon,
-      label: label.replace('/', ''),
+      label,
       ...(children && { children: convertRoutesToMenu(children).menu }),
     }
-    if (!children && !!path) {
+    if (!children) {
       keyArr.push(path)
     }
 

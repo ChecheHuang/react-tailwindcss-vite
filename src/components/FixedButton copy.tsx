@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils'
 import router, { Route } from '@/router/router'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ArrowBigLeftDashIcon, MenuIcon } from 'lucide-react'
-import ProfileDrawer from './ProfileDrawer'
 type MenuItem = Required<MenuProps>['items'][number]
 
 const storageSelectKeys = JSON.parse(
@@ -37,8 +36,6 @@ export default function FixedButton() {
     )
     setSelectKeys([currentRoute.pathname] as string[])
   }, [currentRoute.pathname])
-
-  return <ProfileDrawer />
 
   return (
     <div className="drawer drawer-end z-[1000]">
