@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import router from '@/router/router'
-import { Menu } from 'lucide-react'
+import { ArrowBigLeftDash, ArrowBigLeftDashIcon, Menu } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export default function FixedDropdown() {
@@ -23,12 +23,12 @@ export default function FixedDropdown() {
       </div>
       <div className="drawer-side">
         <label htmlFor="drawer-id" className="drawer-overlay"></label>
-        <div className="menu  w-60 h-full  text-base-content bg-gradient-to-b from-blue-200 to-pink-200  ">
+        <div className="menu  w-60 h-full  text-base-content bg-gradient-to-b from-blue-200 to-pink-200 relative  ">
           <div className="w-full h-screen flex flex-col gap-2 scroll_y">
             {displayRouter.map((route) => (
               <Link
                 className={cn(
-                  'border-2  btn shadow-2xl',
+                  'border-2  btn shadow-2xl text-primary',
                   pathname === route.path ? 'btn-success  ' : 'btn-ghost'
                 )}
                 key={route.path}
@@ -39,10 +39,10 @@ export default function FixedDropdown() {
             ))}
 
             <button
-              className="border-2  btn shadow-2xl btn-ghost"
+              className="absolute bottom-0 border-2  btn shadow-2xl btn-ghost text-primary"
               onClick={() => navigate(-1)}
             >
-              PREV
+              <ArrowBigLeftDashIcon />
             </button>
           </div>
         </div>
