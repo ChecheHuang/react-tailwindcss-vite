@@ -1,7 +1,7 @@
 import { useRoutes, HashRouter as BrowserRouter } from 'react-router-dom'
 import router from '@/router/router'
 import ErrorBoundary from './components/ErrorBoundary'
-import FixedDropdown from './components/FixedDropdown'
+import FixedButton from './components/FixedButton'
 
 const Routes = () => {
   const routes = useRoutes(router)
@@ -18,7 +18,7 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter>
         <Routes />
-        <FixedDropdown />
+        <FixedButton />
       </BrowserRouter>
     </ErrorBoundary>
   )
