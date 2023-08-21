@@ -9,7 +9,7 @@ import Post from './components/Post'
 import PostListInfinite from './components/PostListInfinite'
 import PostListPaginated from './components/PostListPaginated'
 import PostsList2 from './components/PostsList2'
-import PostsList1 from './components/Postslist1'
+import PostsList1 from './components/PostsList1'
 
 function ReactQuery() {
   const [currentPage, setCurrentPage] = useState<React.ReactNode>(
