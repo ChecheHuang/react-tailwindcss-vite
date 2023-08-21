@@ -7,7 +7,7 @@ const baseConfig = {
   base: './',
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit: 6000,
+    chunkSizeWarningLimit: 60000,
     rollupOptions: {
       output: {
         manualChunks(id) {

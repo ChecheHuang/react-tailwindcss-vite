@@ -62,7 +62,8 @@
     "tailwind-scrollbar": "^3.0.5",
     "tailwindcss-animate": "^1.0.6",
     "uuid": "^9.0.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.5",

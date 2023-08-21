@@ -1,3 +1,3 @@
 ```bash
-json-server --watch ./src/views/react-query/db/db.json --port 5000
+json-server --watch src/views/tool/react-query/db/db.json --port 3000
 ```

@@ -2,13 +2,13 @@ import axios from 'axios'
 
 export function getPosts() {
   return axios
-    .get('http://localhost:5000/posts', { params: { _sort: 'title' } })
+    .get('http://localhost:3000/posts', { params: { _sort: 'title' } })
     .then((res) => res.data)
 }
 
 export function getPostsPaginated(page: number) {
   return axios
-    .get('http://localhost:5000/posts', {
+    .get('http://localhost:3000/posts', {
       params: { _page: page, _sort: 'title', _limit: 2 },
     })
     .then((res) => {
@@ -21,19 +21,13 @@ export function getPostsPaginated(page: number) {
     })
 }
 
-export function getPost(id: string) {
-  return axios.get(`http://localhost:5000/posts/${id}`).then((res) => res.data)
+export function getPost(id: number) {
+  return axios.get(`http://localhost:3000/posts/${id}`).then((res) => res.data)
 }
 
-export function createPost({
-  title,
-  body,
-}: {
-  title: string
-  body: Record<string, any>
-}) {
+export function createPost({ title, body }: { title: string; body: string }) {
   return axios
-    .post('http://localhost:5000/posts', {
+    .post('http://localhost:3000/posts', {
       title,
       body,
       userId: 1,

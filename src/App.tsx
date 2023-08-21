@@ -1,7 +1,7 @@
 import { useRoutes, HashRouter as BrowserRouter } from 'react-router-dom'
 import router from '@/router/router'
 import ErrorBoundary from './components/ErrorBoundary'
-import FixedButton from './components/FixedButton'
+import ProfileDrawer from './components/ProfileDrawer'
 
 const Routes = () => {
   const routes = useRoutes(router)
@@ -18,7 +18,7 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter>
         <Routes />
-        <FixedButton />
+        <ProfileDrawer />
       </BrowserRouter>
     </ErrorBoundary>
   )
