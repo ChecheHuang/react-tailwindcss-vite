@@ -27,7 +27,7 @@ function ReactQuery() {
 
   return (
     <>
-      <div className="flex gap-4 p-3 ">
+      <div className="flex gap-4 p-3 flex-wrap ">
         <button
           className="btn btn-sm"
           onClick={() => setCurrentPage(<PostsList1 />)}
