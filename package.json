@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "homepage": "https://chechehuang.github.io/react-tailwindcss-vite",
   "scripts": {
+    "mock": "vite --mode mock",
     "dev": "vite --mode development",
     "build": "vite build --mode production && tsc",
     "preview": "vite preview",
@@ -39,7 +40,6 @@
     "@tanstack/react-query-devtools": "^4.32.6",
     "antd": "^5.8.3",
     "axios": "^1.4.0",
-    "axios-mock-adapter": "^1.21.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
     "framer-motion": "^10.16.0",
@@ -77,6 +77,7 @@
     "@typescript-eslint/parser": "^5.59.8",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.14",
+    "axios-mock-adapter": "^1.21.5",
     "commitizen": "^4.3.0",
     "commitlint": "^17.6.5",
     "commitlint-config-cz": "^0.13.3",

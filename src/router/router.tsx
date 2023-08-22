@@ -17,28 +17,28 @@ const router: Route[] = [
     ]
   },
   {
-    "path": "/tool",
-    "element": LazyLoad(import('@/views/tool/layout')),
-    "label": "/tool",
-    "name": "/tool",
+    "path": "/tools",
+    "element": LazyLoad(import('@/views/tools/layout')),
+    "label": "/tools",
+    "name": "/tools",
     "children": [
       {
-        "path": "/tool/zod",
-        "element": LazyLoad(import('@/views/tool/zod/page')),
-        "label": "/tool/zod",
-        "name": "/tool/zod"
+        "path": "/tools/zod",
+        "element": LazyLoad(import('@/views/tools/zod/page')),
+        "label": "/tools/zod",
+        "name": "/tools/zod"
       },
       {
-        "path": "/tool/redux",
-        "element": LazyLoad(import('@/views/tool/redux/page')),
-        "label": "/tool/redux",
-        "name": "/tool/redux"
+        "path": "/tools/redux",
+        "element": LazyLoad(import('@/views/tools/redux/page')),
+        "label": "/tools/redux",
+        "name": "/tools/redux"
       },
       {
-        "path": "/tool/react-query",
-        "element": LazyLoad(import('@/views/tool/react-query/page')),
-        "label": "/tool/react-query",
-        "name": "/tool/react-query"
+        "path": "/tools/react-query",
+        "element": LazyLoad(import('@/views/tools/react-query/page')),
+        "label": "/tools/react-query",
+        "name": "/tools/react-query"
       }
     ]
   },

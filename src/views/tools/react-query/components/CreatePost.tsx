@@ -32,7 +32,7 @@ export default function CreatePost({ setCurrentPage }: CreatePostProps) {
   }
 
   return (
-    <div>
+    <div className="w-full h-[200px] flex justify-center items-center">
       {createPostMutation.isError && JSON.stringify(createPostMutation.error)}
       <h1>Create Post</h1>
       <form className=" space-y-4" onSubmit={handleSubmit}>

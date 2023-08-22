@@ -17,7 +17,7 @@ export default function PostListPaginated() {
   return (
     <>
       <h1>
-        Post List Paginated
+        Post List 分頁
         <br />
         <small>{isPreviousData && 'Previous Data'}</small>
       </h1>

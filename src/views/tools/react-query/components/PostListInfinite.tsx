@@ -11,13 +11,16 @@ export default function PostListInfinite() {
     fetchNextPage,
   } = useInfiniteQuery({
     queryKey: ['posts', 'infinite'],
-    getNextPageParam: (prevData: any) => prevData.nextPage,
+    getNextPageParam: (prevData: any) => {
+      // console.log('prevData', prevData)
+      return prevData.nextPage
+    },
     queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam),
   })
 
   if (status === 'loading') return <h1>Loading...</h1>
   if (status === 'error') return <h1>{JSON.stringify(error)}</h1>
-
+  // console.log(data.pages)
   return (
     <>
       <h1>Post List Infinite</h1>

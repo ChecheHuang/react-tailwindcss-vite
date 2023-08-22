@@ -1,6 +1,4 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from 'axios'
-import MockAdapter from 'axios-mock-adapter'
-export const mock = new MockAdapter(axios)
 
 const request: AxiosInstance = axios.create({
   baseURL: '/api',
