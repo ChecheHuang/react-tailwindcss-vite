@@ -55,14 +55,14 @@ const App: React.FC = () => {
     <>
       <div className="min-h-screen w-screen" data-theme={theme}>
         <Header setTheme={setTheme} />
-        <main className="pt-10 flex items-center justify-center flex-col overflow-hidden">
+        <main className="flex flex-col  items-center  justify-center overflow-hidden pt-10">
           <AnimatePresence>
             {openLottery === LotteryState.SET && (
               <motion.div
                 exit={{ scale: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex w-full items-center flex-col sm:flex-row  justify-around mt-2 sm:gap-4 gap-12 px-3 ">
+                <div className="mt-2 flex w-full flex-col items-center  justify-around gap-12 px-3 sm:flex-row sm:gap-4 ">
                   <NextStepModal
                     columns={columns}
                     theme={theme}
@@ -89,9 +89,9 @@ const App: React.FC = () => {
                     setLotteryList={setLotteryList}
                   />
                 </div>
-                <div className="w-full flex justify-center mt-3">
+                <div className="mt-3 flex w-full justify-center">
                   <button
-                    className="btn btn-neutral rounded-3xl w-40 text-3xl font-medium text-white"
+                    className="btn-neutral btn w-40 rounded-3xl text-3xl font-medium text-white"
                     disabled={prizes.length === 0 || lotteryList.length === 0}
                     onClick={handleEnterLottery}
                   >
