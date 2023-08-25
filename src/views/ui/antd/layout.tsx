@@ -5,6 +5,10 @@ import Header from './components/Header'
 import { useWindowInfo } from './hooks/useHook'
 import AntdProvider from './provider/AntdProvider'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: 1000 * 60 * 5 } },
+})
 const Layout = () => {
   const { pathname } = useLocation()
   const { windowWidth } = useWindowInfo()
@@ -19,23 +23,25 @@ const Layout = () => {
   }, [pathname])
 
   return (
-    <AntdProvider>
-      <section className="flex h-screen">
-        <Aside collapsed={collapsed} />
-        <section className="flex flex-1 flex-col overflow-y-auto">
-          <Header
-            toggleCollapsed={() => setCollapsed(!collapsed)}
-            collapsed={collapsed}
-          />
-          <main
-            ref={mainRef}
-            className="relative h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth bg-slate-200  scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-dark scrollbar-thumb-rounded   "
-          >
-            <Outlet />
-          </main>
+    <QueryClientProvider client={queryClient}>
+      <AntdProvider>
+        <section className="flex h-screen">
+          <Aside collapsed={collapsed} />
+          <section className="flex flex-1 flex-col overflow-y-auto">
+            <Header
+              toggleCollapsed={() => setCollapsed(!collapsed)}
+              collapsed={collapsed}
+            />
+            <main
+              ref={mainRef}
+              className="scrollbar-thumb-dark relative h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth  bg-slate-200 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-rounded   "
+            >
+              <Outlet />
+            </main>
+          </section>
         </section>
-      </section>
-    </AntdProvider>
+      </AntdProvider>
+    </QueryClientProvider>
   )
 }
 

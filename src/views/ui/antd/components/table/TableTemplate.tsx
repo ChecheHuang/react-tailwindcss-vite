@@ -1,5 +1,6 @@
 import { Table, Input, Form } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { useWindowInfo } from '../../hooks/useHook'
 import { TableProps } from 'antd/lib/table/InternalTable'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import {
@@ -9,13 +10,14 @@ import {
 } from 'antd/es/table/interface'
 import { SearchOutlined } from '@ant-design/icons'
 import { Rule } from 'antd/es/form'
-import { useWindowInfo } from '../../hooks/useHook'
-import Container from '../container/Container'
-import MyCard from '../MyCard'
-import Group from '../Group'
-import ExtendedButton from '../button/ExtendedButton'
-import DownloadButton from '../button/DownloadButton'
+import { FormItemProps } from 'antd/es/form'
 
+import { SizeType } from '../../store/modules/themeSlice'
+import ExtendedButton from '../../components/button/ExtendedButton'
+import MyCard from '../../components/MyCard'
+import Container from '../../components/container/Container'
+import DownloadButton from '../../components/button/DownloadButton'
+import Group from '../../components/Group'
 interface TemplateProps<T> extends TableProps<T> {
   data: T[]
   columns: AnyObject[]
@@ -26,14 +28,16 @@ interface TemplateProps<T> extends TableProps<T> {
   onExport?: () => void
   templateTableProps?: TemplateTableProps
   onSearch?: (value: T) => void
-  searchLayoutArray?: {
-    label: string
-    name: string
-    content?: React.ReactNode
-    className?: string
-    rules?: Rule[]
-  }[]
+  searchLayoutArray?: SearchLayoutType[]
 }
+export interface SearchLayoutType extends FormItemProps<string> {
+  label: string
+  name: string
+  content?: React.ReactNode
+  className?: string
+  rules?: Rule[]
+}
+
 type TemplateTableProps = {
   width?: number
   align?: 'center' | 'left' | 'right'
@@ -80,7 +84,7 @@ const TableTemplate = <T extends AnyObject>({
 
   const dataColumns: ColumnsType<T> = columns.map((col) => {
     const modifiedCol = {
-      key: col.title,
+      key: col.key ? col.key : col.dataIndex ? col.dataIndex : col.title,
       align,
       width,
       ...col,
@@ -105,9 +109,9 @@ const TableTemplate = <T extends AnyObject>({
             form={form}
             onFinish={onSearch}
           >
-            <Group className="relative" unstyled>
+            <div className="relative grid gap-x-3">
               {searchLayoutArray?.map(
-                ({ label, name, content, className, rules }) => {
+                ({ label, name, content, className, rules, ...rest }) => {
                   return (
                     <Form.Item
                       className={className}
@@ -115,6 +119,7 @@ const TableTemplate = <T extends AnyObject>({
                       key={name}
                       name={name}
                       rules={rules}
+                      {...rest}
                     >
                       {content ? (
                         content
@@ -125,30 +130,26 @@ const TableTemplate = <T extends AnyObject>({
                   )
                 }
               )}
-              <div className="  col-span-full flex items-center justify-end  gap-3">
+              <div className=" col-span-4 flex items-center justify-end gap-2  ">
                 <ExtendedButton onClick={handleReset} danger>
                   清除
                 </ExtendedButton>
-                <ExtendedButton type="info" htmlType="submit">
-                  查詢
-                </ExtendedButton>
+                <ExtendedButton htmlType="submit">查詢</ExtendedButton>
               </div>
-            </Group>
+            </div>
           </Form>
         )}
 
         <div className=" flex justify-end gap-2 ">
           <DownloadButton handleExport={onExport} data={data} />
-          <ExtendedButton type="info" onClick={handleCreate}>
-            新增
-          </ExtendedButton>
+          <ExtendedButton onClick={handleCreate}>新增</ExtendedButton>
         </div>
         <Table
           size="small"
           onChange={handleChange}
           scroll={{ x: tableWidth, y: windowHeight - 200 }}
           columns={dataColumns}
-          dataSource={data}
+          dataSource={addKeyToObject(data)}
           pagination={{ position: ['bottomCenter'] }}
           rowSelection={
             onSelect
@@ -190,7 +191,7 @@ export const filterOptions = {
         />
         <div className="mt-2 flex justify-around gap-2">
           <ExtendedButton
-            type="info"
+            type="primary"
             icon={<SearchOutlined />}
             onClick={() => confirm()}
           >
@@ -210,4 +211,33 @@ export const filterOptions = {
   filterIcon: (filtered: boolean) => (
     <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
   ),
+}
+
+function addKeyToObject(obj: any, keyField?: string): any {
+  let key = 1 // 添加一个变量来跟踪索引
+  return addKey(obj, keyField || '')
+
+  function addKey(obj: any, keyField: string): any {
+    if (Array.isArray(obj)) {
+      return obj.map((item: any) => addKey(item, keyField))
+    } else if (typeof obj === 'object' && obj !== null) {
+      const newObj: any = { ...obj }
+      newObj.key =
+        newObj[keyField] !== undefined
+          ? String(newObj[keyField])
+          : String(key++)
+
+      if (newObj.children) {
+        newObj.children = addKey(newObj.children, keyField).map(
+          (child: any) => {
+            child.key = `${newObj.key}-${child.key}`
+            return child
+          }
+        )
+      }
+      return newObj
+    } else {
+      return obj
+    }
+  }
 }

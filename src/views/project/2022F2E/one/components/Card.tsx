@@ -20,7 +20,7 @@ function Card({
       className={cn(
         'relative ',
         'before:h-[90%] before:w-[40%]',
-        'before:absolute before:bottom-[3px] before:left-[4px]    before:bg-black before:content-[""] ',
+        'before:absolute  before:bottom-[3px]  before:left-[4px]   before:bg-black before:content-[""] ',
         'before:origin-right before:skew-y-[-8.5deg] before:transform before:opacity-70 before:blur-[5px] before:filter',
         'after:h-[90%] after:w-[40%]',
         'after:absolute after:bottom-[3px] after:right-[4px]    after:bg-black after:content-[""] ',

@@ -14,23 +14,23 @@ export default function Form() {
   })
 
   const onSubmit: SubmitHandler<UserFormWithAddress> = (data) => {
-    console.log(data.name)
-    console.log(data)
+    // console.log(data.name)
+    // console.log(data)
   }
 
-  console.log(isValid)
+  // console.log(isValid)
 
   return (
     <>
       <button
         onClick={() => trigger()}
-        className="bg-gray-300 rounded p-2 mb-2 text-xl"
+        className="mb-2 rounded bg-gray-300 p-2 text-xl"
       >
         Display Data Requirements
       </button>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col max-w-3xl gap-2 mx-auto"
+        className="mx-auto flex max-w-3xl flex-col gap-2"
       >
         <label htmlFor="name" className="text-xl text-white">
           Name:
@@ -39,11 +39,11 @@ export default function Form() {
           id="name"
           type="text"
           {...register('name')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="John Doe"
         />
         {errors.name && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.name?.message}
           </p>
         )}
@@ -55,11 +55,11 @@ export default function Form() {
           id="username"
           type="text"
           {...register('username')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="johndoe90"
         />
         {errors.username && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.username?.message}
           </p>
         )}
@@ -71,11 +71,11 @@ export default function Form() {
           id="email"
           type="email"
           {...register('email')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="johndoe90@hotmail.com"
         />
         {errors.email && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.email?.message}
           </p>
         )}
@@ -87,11 +87,11 @@ export default function Form() {
           id="street"
           type="text"
           {...register('address.street')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="555 Sycamore St."
         />
         {errors?.address?.street && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.address.street?.message}
           </p>
         )}
@@ -103,11 +103,11 @@ export default function Form() {
           id="suite"
           type="text"
           {...register('address.suite')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="212 B"
         />
         {errors?.address?.suite && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.address.suite?.message}
           </p>
         )}
@@ -119,11 +119,11 @@ export default function Form() {
           id="city"
           type="text"
           {...register('address.city')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="Kansas City"
         />
         {errors?.address?.city && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.address.city?.message}
           </p>
         )}
@@ -135,11 +135,11 @@ export default function Form() {
           id="zipcode"
           type="text"
           {...register('address.zipcode')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="55555-1234"
         />
         {errors?.address?.zipcode && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.address.zipcode?.message}
           </p>
         )}
@@ -150,11 +150,11 @@ export default function Form() {
         <input
           type="tel"
           {...register('phone')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="555-555-5555"
         />
         {errors.phone && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.phone?.message}
           </p>
         )}
@@ -166,11 +166,11 @@ export default function Form() {
           id="website"
           type="text"
           {...register('website')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="https://your-website.com"
         />
         {errors.website && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.website?.message}
           </p>
         )}
@@ -182,11 +182,11 @@ export default function Form() {
           id="company-name"
           type="text"
           {...register('company.name')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="Acme Co."
         />
         {errors?.company?.name && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.company.name?.message}
           </p>
         )}
@@ -198,18 +198,18 @@ export default function Form() {
           id="company-slogan"
           type="text"
           {...register('company.catchPhrase')}
-          className="rounded-md text-xl p-2"
+          className="rounded-md p-2 text-xl"
           placeholder="Coyote's One Stop Shop"
         />
         {errors?.company?.catchPhrase && (
-          <p className="bg-yellow-100 text-red-500 italic px-2 py-1 rounded-md self-start">
+          <p className="self-start rounded-md bg-yellow-100 px-2 py-1 italic text-red-500">
             {errors.company.catchPhrase?.message}
           </p>
         )}
 
         <button
           type="submit"
-          className="text-3xl bg-gray-300 p-2 rounded-md max-w-[10rem]"
+          className="max-w-[10rem] rounded-md bg-gray-300 p-2 text-3xl"
         >
           Submit
         </button>

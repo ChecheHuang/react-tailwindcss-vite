@@ -1,7 +1,6 @@
-import { SlidersOutlined } from '@ant-design/icons'
+//@ts-ignore
 const meta = {
   page: {
     name: '細節資料',
-    icon: SlidersOutlined,
   },
 }

@@ -78,18 +78,16 @@ const router: Route[] = [
           {
             path: '/ui/antd/store_upload_list',
             element: LazyLoad(import('@/views/ui/antd/store_upload_list/page')),
-            name: '表格範例',
-            label: '表格範例',
-            icon: <SlidersOutlined />,
+            name: '表單列表',
+            label: '表單列表',
           },
           {
             path: '/ui/antd/store_upload_list/:id',
             element: LazyLoad(
               import('@/views/ui/antd/store_upload_list/[id]/page')
             ),
-            name: '細節資料',
-            icon: <SlidersOutlined />,
-            label: '細節資料',
+            name: '特店資料',
+            label: '特店資料',
           },
         ],
       },

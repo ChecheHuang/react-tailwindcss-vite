@@ -18,7 +18,7 @@ const Aside: React.FC<AsideProps> = ({ collapsed }) => {
     .find((value) => value.path === '/ui')
     ?.children?.find((value) => value.path === '/ui/antd')?.children
   // .find((value) => value.name === "/ui/antd")
-  console.log(antdRouter)
+  // console.log(antdRouter)
 
   const navigate = useNavigate()
   const currentRoute = useLocation()
@@ -48,12 +48,12 @@ const Aside: React.FC<AsideProps> = ({ collapsed }) => {
   return (
     <div
       className={cn(
-        'max-h-[100vh] overflow-y-scroll bg-[#001529] duration-300 ease-in-out scrollbar-none ',
+        'max-h-[100vh] overflow-y-scroll bg-[#001529] scrollbar-none duration-300 ease-in-out ',
         collapsed ? 'w-20' : ' w-[200px]'
       )}
     >
       <Link to={'/setting'}>
-        <div className="sticky top-0 z-10 flex items-center justify-center gap-3 bg-dark  h-16 ">
+        <div className="bg-dark sticky top-0 z-10 flex h-16 items-center justify-center  gap-3 ">
           <Image
             width={50}
             className="rounded-md"

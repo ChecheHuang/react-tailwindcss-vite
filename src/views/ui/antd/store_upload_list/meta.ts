@@ -1,8 +1,8 @@
-import { SlidersOutlined } from '@ant-design/icons'
+//@ts-ignore
+
 const meta = {
   page: {
-    name: '表格範例',
-    label: '表格範例',
-    icon: SlidersOutlined,
+    name: '表單列表',
+    label: '表單列表',
   },
 }
