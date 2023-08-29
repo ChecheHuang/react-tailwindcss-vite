@@ -11,11 +11,11 @@ const Item: React.FC<ItemProps> = ({ title, children, className }) => {
   return (
     <div
       className={cn(
-        'relative border-[12px] border-primary rounded-3xl sm:w-3/4 w-full sm:h-[70vh] p-10 sm:p-2 flex flex-col gap-2 ',
+        ' relative flex w-full flex-col gap-2 rounded-3xl border-[12px] border-primary p-10 sm:h-[70vh] sm:w-3/4 sm:p-2 ',
         className
       )}
     >
-      <div className=" absolute -top-8 whitespace-nowrap  left-1/2 transform -translate-x-1/2  btn-primary text-base-100  text-2xl rounded-full px-6 py-2 pointer-events-none ">
+      <div className=" btn-primary pointer-events-none absolute  -top-8 left-1/2 -translate-x-1/2  transform whitespace-nowrap  rounded-full px-6 py-2 text-2xl text-base-100 ">
         {title}
       </div>
       {children}

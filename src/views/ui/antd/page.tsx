@@ -40,22 +40,22 @@ const SettingPage = () => {
   ]
   return (
     <div className="flex flex-col gap-2 p-4">
-      <div className="grid grid-cols-4 h-32 gap-4">
+      <div className="grid h-32 grid-cols-4 gap-4">
         {items.map((item) => (
           <Item1 key={item.title} {...item} />
         ))}
       </div>
-      <div className=" space-x-4 flex">
+      <div className=" flex space-x-4">
         <div className=" w-4/6">
-          <div className="w-full mb-2">
+          <div className="mb-2 w-full">
             <h1>折線圖</h1>
           </div>
           <Card>
             <DemoLine />
           </Card>
         </div>
-        <div className=" w-2/6 flex flex-col">
-          <div className="w-full mb-2">
+        <div className=" flex w-2/6 flex-col">
+          <div className="mb-2 w-full">
             <h1>柱狀圖</h1>
           </div>
           <Card className="flex-1">
@@ -73,13 +73,13 @@ const Item1 = ({ title, number, percent, type }: Item) => {
   const Icon = type === 'up' ? RiseOutlined : FallOutlined
 
   return (
-    <div className=" p-4 rounded-md bg-white flex flex-col justify-around">
+    <div className=" flex flex-col justify-around rounded-md bg-white p-4">
       <h2 className=" text-lg text-gray-500">{title}</h2>
-      <div className="flex items-center flex-wrap">
+      <div className="flex flex-wrap items-center">
         <div className="text-lg">{number.toLocaleString()}</div>
         <div
           className={cn(
-            'ml-2 p-1 text-white rounded-md flex gap-2',
+            'ml-2 flex gap-2 rounded-md p-1 text-white',
             type === 'up' ? 'bg-blue-600' : 'bg-orange-400'
           )}
         >
