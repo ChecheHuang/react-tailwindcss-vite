@@ -44,7 +44,6 @@ interface SetLotteryListProps {
 export type SetLotteryListRef = {
   columns: string[]
 }
-
 const SetLotteryList: React.FC<SetLotteryListProps> = ({
   setLotteryList,
   columns,
@@ -158,8 +157,8 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
   return (
     <Item title="加入抽獎名單">
       {!isSettingComplete ? (
-        <div className="w-full h-full flex flex-col items-center gap-2 justify-center">
-          <div className="flex gap-2 items-center flex-wrap w-[350px]">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-2">
+          <div className="flex w-[350px] flex-wrap items-center gap-2">
             欄位
             {columns.map((column) => (
               <div className="badge badge-info" key={column}>
@@ -170,7 +169,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
                       prev.filter((item) => item !== column || item === '次數')
                     )
                   }
-                  className="cursor-pointer ml-1"
+                  className="ml-1 cursor-pointer"
                 />
               </div>
             ))}
@@ -180,12 +179,12 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
               <input
                 placeholder="輸入要加入的欄位"
                 type="text"
-                className="input input-secondary col-span-7 "
+                className="input-secondary input col-span-7 "
                 ref={addColumnRef}
               />
               <button
                 onClick={handleAddColumn}
-                className="btn btn-secondary col-span-3 "
+                className="btn-secondary btn col-span-3 "
               >
                 加入欄位
               </button>
@@ -200,7 +199,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
               SetIsSettingComplete(true)
               localStorage.setItem('columns', JSON.stringify(columns))
             }}
-            className="btn btn-primary"
+            className="btn-primary btn"
             disabled={columns.length === 1}
           >
             設定完成
@@ -217,8 +216,8 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
           <label
             htmlFor="file"
             className={cn(
-              ' btn btn-neutral absolute text-white sm:-top-8 sm:right-10 ',
-              'btn-sm sm:btn-md -top-6 right-0 '
+              ' btn-neutral btn absolute text-white sm:-top-8 sm:right-10 ',
+              'btn-sm -top-6 right-0 sm:btn-md '
             )}
           >
             匯入EXCEL
@@ -228,7 +227,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
             style={{
               gridTemplateColumns: `repeat(${columns.length + 1}, 1fr)`,
             }}
-            className="grid gap-4 mt-4"
+            className="mt-4 grid gap-4"
           >
             {columns.map((column) => {
               const isFreq = column === '次數'
@@ -250,12 +249,12 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
 
             <button
               type="submit"
-              className="btn btn-secondary text-dark whitespace-nowrap"
+              className="text-dark btn-secondary btn whitespace-nowrap"
             >
               加入抽獎
             </button>
           </form>
-          <div className="w-full  h-full overflow-y-auto scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-thin ">
+          <div className="h-full  w-full overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-900 ">
             {people.map((item) => {
               return (
                 <div
@@ -263,17 +262,25 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
                   style={{
                     gridTemplateColumns: `repeat(${columns.length + 1}, 1fr)`,
                   }}
-                  className="  grid  grid-rows-[40px]  gap-4 place-items-center"
+                  className="  grid  grid-rows-[40px]  place-items-center gap-4"
                 >
                   {columns.map((column) => (
-                    <div key={column}>{item[column]}</div>
+                    <div
+                      className={cn(
+                        ' w-full   cursor-pointer overflow-hidden text-ellipsis text-center ',
+                        ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900'
+                      )}
+                      key={column}
+                    >
+                      {item[column]}
+                    </div>
                   ))}
                   <div>
                     <button
-                      className="btn btn-primary group btn-sm"
+                      className="group btn-primary btn-sm btn"
                       onClick={() => removePeople(item.id)}
                     >
-                      <AiFillDelete className=" text-base-100 text-2xl group-hover:text-red-500 transition duration-200" />
+                      <AiFillDelete className=" text-2xl text-base-100 transition duration-200 group-hover:text-red-500" />
                     </button>
                   </div>
                 </div>

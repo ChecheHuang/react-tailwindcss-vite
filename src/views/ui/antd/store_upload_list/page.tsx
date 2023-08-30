@@ -9,6 +9,7 @@ import Columns from './components/columns'
 import SearchLayoutArray from './components/searchLayoutArray'
 import { DataType, FilterInfo } from './types'
 import { getStoreList } from './api/store_list'
+import useQueryStringObj from '../hooks/useQueryStringObj'
 // json-server --watch --port 3000 src/views/setting/accquiry/store_upload_list/api/db.json
 
 const initFilterData: FilterInfo = {
@@ -17,7 +18,8 @@ const initFilterData: FilterInfo = {
 }
 
 const Page = () => {
-  const [filterInfo, setFilterInfo] = useState<FilterInfo>(initFilterData)
+  const [filterInfo, setFilterInfo] =
+    useQueryStringObj<FilterInfo>(initFilterData)
 
   const { data, isLoading } = useQuery({
     queryKey: ['store_list', { filterInfo }],

@@ -7,7 +7,8 @@ import Item from '../Item'
 import { toast } from 'react-toastify'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Input from '../inputs/Input'
-import placeholdImg from '../../images/small.png'
+import smallImg from '../../images/small.png'
+import { cn } from '@/lib/utils'
 
 interface SetPrizeProps {
   addPrize: (data: PrizeType) => void
@@ -56,7 +57,7 @@ const SetPrize: React.FC<SetPrizeProps> = ({
   return (
     <Item title="設定獎項">
       <form
-        className="grid grid-cols-4 gap-4 mt-4"
+        className="mt-4 grid grid-cols-4 gap-4"
         onSubmit={handleSubmit(handleAddPrize)}
       >
         <Input
@@ -83,42 +84,49 @@ const SetPrize: React.FC<SetPrizeProps> = ({
         />
         <label
           htmlFor="imgFile"
-          className="  btn btn-primary font-thin text-white w-full whitespace-nowrap"
+          className="  btn-primary btn w-full whitespace-nowrap font-thin text-white"
         >
           上傳圖片
         </label>
         <button
           type="submit"
-          className="btn btn-secondary text-dark whitespace-nowrap "
+          className="text-dark btn-secondary btn whitespace-nowrap "
         >
           加入獎項
         </button>
       </form>
-      <div className="w-full  h-full overflow-y-auto scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-thin ">
+      <div className="h-full  w-full overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-900 ">
         {prizes.map(({ prize, img, quantity, id }) => {
           return (
             <div
               key={id}
-              className="  grid grid-cols-4 grid-rows-[100px]  gap-4 place-items-center"
+              className="  grid grid-cols-4 grid-rows-[100px]  place-items-center gap-4"
             >
-              <div>{prize}</div>
+              <div
+                className={cn(
+                  ' w-full   cursor-pointer overflow-hidden text-ellipsis text-center ',
+                  ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900'
+                )}
+              >
+                {prize}
+              </div>
               <div>{quantity}</div>
-              <div className="p-2 h-full overflow-hidden">
+              <div className="h-full overflow-hidden p-2">
                 <LazyLoadImage
                   height={'100%'}
                   alt=""
                   src={img}
-                  placeholderSrc={placeholdImg}
+                  placeholderSrc={smallImg}
                   effect="blur"
                 />
               </div>
 
               <div>
                 <button
-                  className="btn btn-primary group"
+                  className="group btn-primary btn"
                   onClick={() => removePrize(id)}
                 >
-                  <AiFillDelete className=" text-base-100 text-2xl group-hover:text-red-500 transition duration-200" />
+                  <AiFillDelete className=" text-2xl text-base-100 transition duration-200 group-hover:text-red-500" />
                 </button>
               </div>
             </div>

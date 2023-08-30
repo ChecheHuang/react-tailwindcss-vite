@@ -146,16 +146,16 @@ const Lottery: FC<LotteryProps> = ({
 
   return (
     <div className="w-full px-16">
-      <Item className="sm:w-full sm:h-[80vh] h-auto " title="抽獎區">
+      <Item className="h-auto sm:h-[80vh] sm:w-full " title="抽獎區">
         <div className="flex h-full flex-col sm:flex-row">
-          <div className="  sm:h-full  w-full sm:w-1/5 flex sm:flex-col items-center  flex-nowrap sm:scroll_y gap-2 p-4 ">
+          <div className="  scroll_y  flex w-full flex-nowrap items-center gap-2  p-4 sm:h-full sm:w-1/5 sm:flex-col ">
             {prizes.map((prize, index) => {
               return (
                 <div
                   key={prize.id}
                   onClick={() => setCurrentPrizeIndex(index)}
                   className={cn(
-                    'w-full indicator cursor-pointer scale-75 duration-100 relative',
+                    'indicator relative w-full scale-75 cursor-pointer duration-100',
                     currentPrizeIndex === index && ' scale-90',
                     prize.quantity === 0 && 'pointer-events-none'
                   )}
@@ -164,11 +164,11 @@ const Lottery: FC<LotteryProps> = ({
                     className=" rounded-lg opacity-80"
                     src={prize.img}
                   />
-                  <h1 className="absolute_center  text-slate-200  text-2xl w-full text-center ">
+                  <h1 className="absolute_center w-full  truncate  text-center text-2xl text-slate-200 ">
                     {prize.prize}
                     {prize.quantity === 0 && '已抽完'}
                   </h1>
-                  <span className="indicator-item badge text-slate-200  badge-neutral  text-lg ">
+                  <span className="badge badge-neutral indicator-item  text-lg  text-slate-200 ">
                     {prize.quantity}
                   </span>
                 </div>
@@ -176,8 +176,8 @@ const Lottery: FC<LotteryProps> = ({
             })}
           </div>
           <div className="flex-1">
-            <div className="h-[85%]  flex flex-col">
-              <div className="flex items-center justify-around h-20 text-dark ">
+            <div className="flex  h-[85%] flex-col">
+              <div className="text-dark flex h-20 items-center justify-around ">
                 <div className="flex flex-col items-center ">
                   <div>獎品名稱</div>
                   <h2 className="text-2xl">
@@ -193,7 +193,7 @@ const Lottery: FC<LotteryProps> = ({
               </div>
               <div
                 className={cn(
-                  ' flex-1 m-2 overflow-hidden flex items-center justify-center  relative  h-[300px]  ',
+                  ' relative m-2 flex h-[300px] flex-1 items-center  justify-center  overflow-hidden  ',
                   !isMustWin && 'cursor-pointer'
                 )}
               >
@@ -206,16 +206,16 @@ const Lottery: FC<LotteryProps> = ({
                 )}
                 {status === Status.LOADING && (
                   <Loading1
-                    className=" sm:h-auto sm:w-auto h-[225px] w-[200px]"
+                    className=" h-[225px] w-[200px] sm:h-auto sm:w-auto"
                     onClick={createWinner}
                   />
                 )}
                 {status === Status.SUCCESS && (
                   <>
-                    <Congratulation className="w-full absolute pointer-events-none  " />
+                    <Congratulation className="pointer-events-none absolute w-full  " />
                     <div
                       onClick={() => setIsMustWin(!isMustWin)}
-                      className="flex items-center justify-center flex-col gap-5  "
+                      className="flex flex-col items-center justify-center gap-5  "
                     >
                       <motion.div
                         initial={{
@@ -228,7 +228,7 @@ const Lottery: FC<LotteryProps> = ({
                           rotateZ: 720,
                         }}
                         transition={{ duration: 0.3 }}
-                        className="h-32 rounded-lg overflow-hidden"
+                        className="h-32 overflow-hidden rounded-lg"
                       >
                         <img src={prizes[currentPrizeIndex].img} alt="" />
                       </motion.div>
@@ -252,7 +252,7 @@ const Lottery: FC<LotteryProps> = ({
                               scale: 1,
                             }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="text-2xl z-10"
+                            className="z-10 text-2xl"
                           >
                             {showInfo.winner}
                           </motion.div>
@@ -268,14 +268,14 @@ const Lottery: FC<LotteryProps> = ({
             <div className="flex items-center justify-center gap-20">
               <button
                 onClick={startLottery}
-                className="btn btn-neutral rounded-3xl w-40 text-3xl font-medium text-white"
+                className="btn-neutral btn w-40 rounded-3xl text-3xl font-medium text-white"
               >
                 開始抽獎
               </button>
               <button
                 disabled={status !== Status.SUCCESS}
                 onClick={restartLottery}
-                className="btn btn-warning rounded-3xl w-40 text-3xl font-medium text-white"
+                className="btn-warning btn w-40 rounded-3xl text-3xl font-medium text-white"
               >
                 重新抽獎
               </button>
