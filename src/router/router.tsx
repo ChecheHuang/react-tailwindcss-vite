@@ -49,6 +49,12 @@ const router: Route[] = [
         "name": "/tools/redux"
       },
       {
+        "path": "/tools/tailwindcss",
+        "element": LazyLoad(import('@/views/tools/tailwindcss/page')),
+        "label": "/tools/tailwindcss",
+        "name": "/tools/tailwindcss"
+      },
+      {
         "path": "/tools/react-query",
         "element": LazyLoad(import('@/views/tools/react-query/page')),
         "label": "/tools/react-query",
