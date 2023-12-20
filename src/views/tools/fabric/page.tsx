@@ -131,7 +131,8 @@ const Page = () => {
   }
 
   useEffect(() => {
-    const imageUrl = '/source/1.png'
+    const imageUrl =
+      'https://images.pexels.com/photos/434341/pexels-photo-434341.jpeg?auto=compress&cs=tinysrgb&w=600'
     fabric.Image.fromURL(imageUrl, (img) => {
       const { height, width } = img
       if (!height || !width) {
