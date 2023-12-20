@@ -43,10 +43,36 @@ const router: Route[] = [
         "name": "/tools/zod"
       },
       {
+        "path": "/tools/pdf",
+        "element": LazyLoad(import('@/views/tools/pdf/layout')),
+        "label": "/tools/pdf",
+        "name": "/tools/pdf",
+        "children": [
+          {
+            "path": "/tools/pdf/2",
+            "element": LazyLoad(import('@/views/tools/pdf/2/page')),
+            "label": "/tools/pdf/2",
+            "name": "/tools/pdf/2"
+          },
+          {
+            "path": "/tools/pdf/1",
+            "element": LazyLoad(import('@/views/tools/pdf/1/page')),
+            "label": "/tools/pdf/1",
+            "name": "/tools/pdf/1"
+          }
+        ]
+      },
+      {
         "path": "/tools/redux",
         "element": LazyLoad(import('@/views/tools/redux/page')),
         "label": "/tools/redux",
         "name": "/tools/redux"
+      },
+      {
+        "path": "/tools/fabric",
+        "element": LazyLoad(import('@/views/tools/fabric/page')),
+        "label": "/tools/fabric",
+        "name": "/tools/fabric"
       },
       {
         "path": "/tools/tailwindcss",
