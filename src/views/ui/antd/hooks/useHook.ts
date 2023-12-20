@@ -69,54 +69,6 @@ export function usePrevious<T>(value: T): T | undefined {
   return ref.current
 }
 
-export function useTimeout(
-  callback: Callback,
-  delay: number
-): {
-  reset: () => void
-  clear: () => void
-} {
-  const callbackRef = useRef<Callback>(callback)
-  const timeoutRef = useRef<NodeJS.Timeout>()
-
-  useEffect(() => {
-    callbackRef.current = callback
-  }, [callback])
-
-  const set = useCallback(() => {
-    timeoutRef.current = setTimeout(() => callbackRef.current(), delay)
-  }, [delay])
-
-  const clear = useCallback(() => {
-    timeoutRef.current && clearTimeout(timeoutRef.current)
-  }, [])
-
-  useEffect(() => {
-    set()
-    return clear
-  }, [delay, set, clear])
-
-  const reset = useCallback(() => {
-    clear()
-    set()
-  }, [clear, set])
-
-  return { reset, clear }
-}
-export function useDebounce(
-  callback: Callback,
-  delay: number,
-  dependencies: any[]
-) {
-  const { reset, clear } = useTimeout(callback, delay)
-
-  useEffect(reset, [...dependencies, reset])
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(clear, [])
-
-  return { reset, clear }
-}
-
 export const useInput = (
   initialValue: string
 ): [
