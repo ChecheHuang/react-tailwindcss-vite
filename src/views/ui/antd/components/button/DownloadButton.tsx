@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
-import ExtendedButton from './ExtendedButton'
 import * as XLSX from 'xlsx'
+
+import ExtendedButton from './ExtendedButton'
 
 interface DownloadButtonProps {
   data: AnyObject[]

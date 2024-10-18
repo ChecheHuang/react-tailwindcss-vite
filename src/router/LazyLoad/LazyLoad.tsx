@@ -1,8 +1,10 @@
-import React, { Suspense } from 'react'
 import clsx from 'clsx'
+import React, { Suspense } from 'react'
+
 import styles from './loader.module.scss'
+
 export default function LazyLoad(
-  ComponentPromise: Promise<{ default: React.ComponentType<object> }>
+  ComponentPromise: Promise<{ default: React.ComponentType<object> }>,
 ) {
   const LazyComponent = React.lazy(() => ComponentPromise)
 
@@ -19,7 +21,7 @@ function Loader() {
       <div
         className={clsx(
           'h-full bg-gradient-to-r from-green-500 to-blue-500',
-          styles.animateLoader
+          styles.animateLoader,
         )}
       ></div>
     </div>

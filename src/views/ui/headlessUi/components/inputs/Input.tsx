@@ -1,6 +1,7 @@
 'use client'
-import React from 'react'
+
 import clsx from 'clsx'
+import React from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 interface InputProps {
@@ -57,7 +58,7 @@ const Input: React.FC<InputProps> = ({
             sm:text-sm 
             sm:leading-6`,
             errors[id] && 'focus:ring-rose-500',
-            disabled && 'cursor-default opacity-50'
+            disabled && 'cursor-default opacity-50',
           )}
         />
       </div>

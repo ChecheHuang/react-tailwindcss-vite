@@ -1,12 +1,14 @@
-import { cn } from '@/lib/utils'
 import React from 'react'
-import styles from './input.module.scss'
 import {
   FieldErrors,
   FieldValues,
   UseFormRegister,
   RegisterOptions,
 } from 'react-hook-form'
+
+import { cn } from '@/lib/utils'
+
+import styles from './input.module.scss'
 
 interface InputProps {
   label?: string
@@ -55,14 +57,14 @@ const Input: React.FC<InputProps> = ({
           className,
           styles.floatInput,
           errors[id] && 'input-error',
-          disabled && 'opacity-50 cursor-default'
+          disabled && 'opacity-50 cursor-default',
         )}
       />
       <label
         className={cn(
           'absolute top-1/2 left-0 transform -translate-y-1/2 ml-4 ease-in-out duration-300 pointer-events-none  text-warning ',
           errors[id] && 'text-error',
-          focusLabelClassName
+          focusLabelClassName,
         )}
         htmlFor=""
       >

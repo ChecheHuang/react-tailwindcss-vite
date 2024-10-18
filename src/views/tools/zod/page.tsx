@@ -1,5 +1,6 @@
 import Form from './components/Form'
 import fetchUsers from './lib/fetchUsers'
+
 // import './models/Example'
 fetchUsers()
 

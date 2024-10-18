@@ -1,5 +1,7 @@
 import { useRoutes, HashRouter as BrowserRouter } from 'react-router-dom'
+
 import router from '@/router/router'
+
 import ErrorBoundary from './components/ErrorBoundary'
 import ProfileDrawer from './components/ProfileDrawer'
 

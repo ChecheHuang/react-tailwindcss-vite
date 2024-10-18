@@ -19,7 +19,7 @@ request.interceptors.request.use(
   },
   (error: AxiosError) => {
     return Promise.reject(error)
-  }
+  },
 )
 request.interceptors.response.use(
   (response: AxiosResponse) => {
@@ -27,7 +27,7 @@ request.interceptors.response.use(
   },
   (error: AxiosError) => {
     return Promise.reject(error)
-  }
+  },
 )
 
 export default request

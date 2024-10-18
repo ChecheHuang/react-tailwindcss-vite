@@ -10,7 +10,7 @@ const removeUndefinedAndNullAndEmpty = <T extends AnyObject>(obj: T) =>
   filterObjectValueByArg(obj, undefined, null, '')
 
 export default function useQueryStringObj<T>(
-  initialState: T
+  initialState: T,
 ): [T, (newState: T | Callback<T>) => void] {
   const [state, setState] = useState<T>(initialState)
   const [params, setParams] = useSearchParams()
@@ -32,7 +32,7 @@ export default function useQueryStringObj<T>(
       setState((prevState) => (state as Callback<T>)(prevState))
     } else {
       setParams(
-        removeUndefinedAndNullAndEmpty(state as Record<string | number, any>)
+        removeUndefinedAndNullAndEmpty(state as Record<string | number, any>),
       )
     }
   }, [state])

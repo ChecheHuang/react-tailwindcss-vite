@@ -1,4 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
+
 import { getPostsPaginated } from '../api/posts'
 
 export default function PostListInfinite() {

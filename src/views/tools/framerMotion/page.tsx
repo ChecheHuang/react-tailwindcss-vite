@@ -1,10 +1,11 @@
 import { useState } from 'react'
+
 import Demo from './components/Demo'
 import Demo2 from './components/Demo2'
 import Demo3 from './components/Demo3'
-import FramerMotion from './components/FramerMotion'
 import Demo4 from './components/Demo4'
 import Demo5 from './components/Demo5'
+import FramerMotion from './components/FramerMotion'
 
 export default function Page() {
   const [start, setStart] = useState(true)

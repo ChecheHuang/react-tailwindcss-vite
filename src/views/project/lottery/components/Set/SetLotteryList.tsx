@@ -1,14 +1,16 @@
-import * as XLSX from 'xlsx'
-import { v4 as uuidv4 } from 'uuid'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { AiFillDelete } from 'react-icons/ai'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { IoClose } from 'react-icons/io5'
 // import { cn } from '@/lib/utils'
 import { toast } from 'react-toastify'
-import { IoClose } from 'react-icons/io5'
-import Input from '../inputs/Input'
+import { v4 as uuidv4 } from 'uuid'
+import * as XLSX from 'xlsx'
+
 import { cn } from '@/lib/utils'
+
 import Item from '../Item'
+import Input from '../inputs/Input'
 
 const initPeople: PeopleType[] = [
   // {
@@ -141,7 +143,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
       length: people.length,
       total: people.reduce((prev, current) => prev + current['次數'], 0),
     }),
-    [people]
+    [people],
   )
   useEffect(() => {
     setLotteryList(
@@ -151,7 +153,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
           acc = [...acc, person]
         }
         return acc
-      }, [] as LotteryType[])
+      }, [] as LotteryType[]),
     )
   }, [people, setLotteryList])
   return (
@@ -166,7 +168,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
                 <IoClose
                   onClick={() =>
                     setColumns((prev) =>
-                      prev.filter((item) => item !== column || item === '次數')
+                      prev.filter((item) => item !== column || item === '次數'),
                     )
                   }
                   className="ml-1 cursor-pointer"
@@ -217,7 +219,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
             htmlFor="file"
             className={cn(
               ' btn-neutral btn absolute text-white sm:-top-8 sm:right-10 ',
-              'btn-sm -top-6 right-0 sm:btn-md '
+              'btn-sm -top-6 right-0 sm:btn-md ',
             )}
           >
             匯入EXCEL
@@ -268,7 +270,7 @@ const SetLotteryList: React.FC<SetLotteryListProps> = ({
                     <div
                       className={cn(
                         ' w-full   cursor-pointer overflow-hidden text-ellipsis text-center ',
-                        ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900'
+                        ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900',
                       )}
                       key={column}
                     >

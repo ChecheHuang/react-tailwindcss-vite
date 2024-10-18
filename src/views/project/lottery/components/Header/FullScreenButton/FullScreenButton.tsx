@@ -1,10 +1,12 @@
+import { useState, useEffect } from 'react'
+import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
+
 import {
   exitFullScreen,
   isFullscreenElement,
   requestFullScreen,
 } from './fullScreen'
-import { useState, useEffect } from 'react'
-import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
+
 const FullScreenButton = () => {
   const [fullScreen, setFullScreen] = useState(false)
   const [originResizeFunc, setOriginResizeFunc] = useState<any>(null)

@@ -1,8 +1,8 @@
 import { matchW, matchL, matchE } from './Adt'
-import { compose } from './compose'
-import { Option, some, none } from './Option'
-import { List, cons, nil, showList } from './List'
 import { Either, left, right } from './Either'
+import { List, cons, nil, showList } from './List'
+import { Option, some, none } from './Option'
+import { compose } from './compose'
 
 type StrLength = (x: string) => number
 
@@ -13,7 +13,7 @@ console.log(strLength('abcd'))
 type OptionStrLength = (Fx: Option<string>) => Option<number>
 const strLength1: OptionStrLength = matchW(
   () => none,
-  (value: string) => some(value.length)
+  (value: string) => some(value.length),
 )
 
 console.log(strLength1(some('abcd')))
@@ -25,7 +25,7 @@ const increment: Increment = (x) => x + 1
 type OptionIncrement = (Fx: Option<number>) => Option<number>
 const increment1: OptionIncrement = matchW(
   () => none,
-  (value: number) => some(increment(value))
+  (value: number) => some(increment(value)),
 )
 
 console.log(increment1(some(12)))
@@ -35,7 +35,7 @@ type MapOption = <A, B>(f: (x: A) => B) => (Fx: Option<A>) => Option<B>
 const map_option: MapOption = (f) =>
   matchW(
     () => none,
-    (value) => some(f(value))
+    (value) => some(f(value)),
   )
 
 const strLength2 = map_option(strLength)
@@ -63,7 +63,7 @@ type MapList = <A, B>(f: (x: A) => B) => (Fx: List<A>) => List<B>
 const map_list: MapList = (f) =>
   matchL(
     () => nil,
-    (head, tail) => cons(f(head), map_list(f)(tail))
+    (head, tail) => cons(f(head), map_list(f)(tail)),
   )
 
 const strLength3 = map_list(strLength)
@@ -77,7 +77,7 @@ type MapEither = <A, B, E>(f: (x: A) => B) => (Fx: Either<E, A>) => Either<E, B>
 const map_either: MapEither = (f) =>
   matchE(
     (e) => left(e),
-    (a) => right(f(a))
+    (a) => right(f(a)),
   )
 
 const increment4 = map_either(increment)

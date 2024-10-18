@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { Dialog } from '@headlessui/react'
 import { FiAlertTriangle } from 'react-icons/fi'
-import Modal from './Modal'
+
+import { Dialog } from '@headlessui/react'
+
 import Button from './Button'
+import Modal from './Modal'
 import MultiSelect from './inputs/MultiSelect'
 
 interface ConfirmModalProps {

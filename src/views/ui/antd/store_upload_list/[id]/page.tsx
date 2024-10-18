@@ -1,16 +1,17 @@
-import { useNavigate, useParams } from 'react-router-dom'
 import { Form, Input } from 'antd'
+import { useNavigate, useParams } from 'react-router-dom'
+
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
+import Group from '../../components/Group'
+import Loading from '../../components/Loading'
+import MyCard from '../../components/MyCard'
+import ExtendedButton from '../../components/button/ExtendedButton'
+import TabContainer from '../../components/container/TabContainer/TabContainer'
+import Title from '../../components/table/Title'
+import { useAntd } from '../../provider/AntdProvider'
 import { getStore, editStore, createStore } from '../api/store_list'
 import { DataType } from '../types'
-import { useAntd } from '../../provider/AntdProvider'
-import Loading from '../../components/Loading'
-import TabContainer from '../../components/container/TabContainer/TabContainer'
-import MyCard from '../../components/MyCard'
-import Title from '../../components/table/Title'
-import Group from '../../components/Group'
-import ExtendedButton from '../../components/button/ExtendedButton'
 
 const Page = () => {
   const { id = 'create' } = useParams()

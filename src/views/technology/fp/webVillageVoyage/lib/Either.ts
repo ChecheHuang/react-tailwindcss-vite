@@ -57,7 +57,7 @@ const increment: Increment = (x) => x + 1
 
 const composed = compose(
   (x) => (isLeft(x) ? x : right(increment(x.right))),
-  devideTwoIfEven2
+  devideTwoIfEven2,
 )
 
 // console.log(composed(8))

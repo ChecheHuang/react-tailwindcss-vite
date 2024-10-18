@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import React from 'react'
+
+import { cn } from '@/lib/utils'
 
 interface ItemProps {
   title: string
@@ -12,7 +13,7 @@ const Item: React.FC<ItemProps> = ({ title, children, className }) => {
     <div
       className={cn(
         ' relative flex w-full flex-col gap-2 rounded-3xl border-[12px] border-primary p-10 sm:h-[70vh] sm:w-3/4 sm:p-2 ',
-        className
+        className,
       )}
     >
       <div className=" btn-primary pointer-events-none absolute  -top-8 left-1/2 -translate-x-1/2  transform whitespace-nowrap  rounded-full px-6 py-2 text-2xl text-base-100 ">

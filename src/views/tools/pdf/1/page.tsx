@@ -1,12 +1,14 @@
-import file from '../1.pdf'
+import { Button } from 'antd'
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.js?url'
+import { useState } from 'react'
+
 import { Worker, Viewer, LocalizationMap } from '@react-pdf-viewer/core'
 import '@react-pdf-viewer/core/lib/styles/index.css'
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'
 import '@react-pdf-viewer/default-layout/lib/styles/index.css'
 import zh_TW from '@react-pdf-viewer/locales/lib/zh_TW.json'
-import { Button } from 'antd'
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.js?url'
-import { useState } from 'react'
+
+import file from '../1.pdf'
 
 function PdfPage() {
   const defaultLayoutPluginInstance = defaultLayoutPlugin()

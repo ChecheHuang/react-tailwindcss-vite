@@ -1,6 +1,5 @@
 import { ListMusic, PlusCircle } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import {
   ContextMenu,
@@ -12,6 +11,7 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu'
+import { cn } from '@/lib/utils'
 
 import { Album } from '../data/albums'
 import { playlists } from '../data/playlists'
@@ -43,7 +43,7 @@ export function AlbumArtwork({
               height={height}
               className={cn(
                 'h-auto w-auto object-cover transition-all hover:scale-105',
-                aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'
+                aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square',
               )}
             />
           </div>

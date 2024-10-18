@@ -23,7 +23,7 @@ const doStuff = _.pipe(
   reverse,
   map(trim),
   // log,
-  join(' ')
+  join(' '),
 )
 
 // // console.log(doStuff('Welcome to FP world'))
@@ -140,7 +140,7 @@ const findColor2 = (name: string) =>
     {
       red: '#ff4444',
       blue: '#3b5998',
-    }[name]
+    }[name],
   )
 
 // Success Happy Path

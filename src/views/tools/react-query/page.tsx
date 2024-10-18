@@ -1,19 +1,21 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { getPost } from './api/posts'
 import CreatePost from './components/CreatePost'
 import Post from './components/Post'
 import PostListInfinite from './components/PostListInfinite'
 import PostListPaginated from './components/PostListPaginated'
-import PostsList2 from './components/PostsList2'
 import PostsList1 from './components/PostsList1'
+import PostsList2 from './components/PostsList2'
+
 // json-server --watch --port 3000 src/views/tools/react-query/api/db.json
 function ReactQuery() {
   const [currentPage, setCurrentPage] = useState<React.ReactNode>(
-    <PostsList1 />
+    <PostsList1 />,
   )
   const queryClient = useQueryClient()
 

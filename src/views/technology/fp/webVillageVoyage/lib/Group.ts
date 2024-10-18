@@ -12,7 +12,7 @@ const addGroup: Group<number> = {
 
 const walletBalance = addGroup.concat(
   addGroup.empty,
-  addGroup.concat(80, addGroup.concat(20, addGroup.inverse(10)))
+  addGroup.concat(80, addGroup.concat(20, addGroup.inverse(10))),
 )
 console.log(walletBalance)
 

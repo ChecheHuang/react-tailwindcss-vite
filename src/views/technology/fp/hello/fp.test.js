@@ -1,4 +1,5 @@
 import { expect, test } from 'vitest'
+
 import { display, displayProducts, displayTotal, checkout, main } from './page'
 
 test('display', () => {

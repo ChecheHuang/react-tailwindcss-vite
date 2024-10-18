@@ -1,10 +1,12 @@
-import { cn } from '@/lib/utils'
 import { Steps } from 'antd'
 import { memo, useEffect, useMemo, useRef } from 'react'
 import { FC, ReactNode, isValidElement, Children } from 'react'
-import Container from '../Container'
+
+import { cn } from '@/lib/utils'
+
 import MyCard from '../../MyCard'
 import ExtendedButton from '../../button/ExtendedButton'
+import Container from '../Container'
 
 interface StepContainerProps {
   stepClassName?: string
@@ -65,9 +67,9 @@ const StepContainer: FC<StepContainerProps> & {
   const content: ReactNode = useMemo(
     () =>
       Children.toArray(children).filter(
-        (child) => isValidElement(child) && child.type !== StepContainer.Item
+        (child) => isValidElement(child) && child.type !== StepContainer.Item,
       ),
-    [children]
+    [children],
   )
 
   const items = steps.map((value) => ({ title: value.title }))
@@ -88,7 +90,7 @@ const StepContainer: FC<StepContainerProps> & {
         ref={ref}
         className={cn(
           'h-[calc(100vh-6rem)] overflow-y-auto scroll-smooth  scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-dark ',
-          className
+          className,
         )}
       >
         <MyCard>
@@ -100,7 +102,7 @@ const StepContainer: FC<StepContainerProps> & {
             ) : (
               <ExtendedButton
                 className={cn(
-                  currentStep === 1 && 'opacity-0 pointer-events-none'
+                  currentStep === 1 && 'opacity-0 pointer-events-none',
                 )}
                 onClick={() =>
                   onPrevious &&
@@ -120,7 +122,7 @@ const StepContainer: FC<StepContainerProps> & {
                     onNext(
                       currentStep === steps.length
                         ? steps.length
-                        : currentStep + 1
+                        : currentStep + 1,
                     )
                   if (currentStep === steps.length) {
                     onComplete && onComplete()

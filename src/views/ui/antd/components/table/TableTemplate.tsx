@@ -1,23 +1,25 @@
 import { Table, Input, Form } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import { useWindowInfo } from '../../hooks/useHook'
-import { TableProps } from 'antd/lib/table/InternalTable'
+import { Rule } from 'antd/es/form'
+import { FormItemProps } from 'antd/es/form'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import {
   FilterDropdownProps,
   FilterValue,
   SorterResult,
 } from 'antd/es/table/interface'
-import { SearchOutlined } from '@ant-design/icons'
-import { Rule } from 'antd/es/form'
-import { FormItemProps } from 'antd/es/form'
+import { TableProps } from 'antd/lib/table/InternalTable'
+import { useNavigate } from 'react-router-dom'
 
-import { SizeType } from '../../store/modules/themeSlice'
-import ExtendedButton from '../../components/button/ExtendedButton'
-import MyCard from '../../components/MyCard'
-import Container from '../../components/container/Container'
-import DownloadButton from '../../components/button/DownloadButton'
+import { SearchOutlined } from '@ant-design/icons'
+
 import Group from '../../components/Group'
+import MyCard from '../../components/MyCard'
+import DownloadButton from '../../components/button/DownloadButton'
+import ExtendedButton from '../../components/button/ExtendedButton'
+import Container from '../../components/container/Container'
+import { useWindowInfo } from '../../hooks/useHook'
+import { SizeType } from '../../store/modules/themeSlice'
+
 interface TemplateProps<T> extends TableProps<T> {
   data: T[]
   columns: AnyObject[]
@@ -66,7 +68,7 @@ const TableTemplate = <T extends AnyObject>({
     pagination,
     filters,
     sorter,
-    extra
+    extra,
   ) => {
     const { action } = extra
     const actions = new Map([
@@ -128,7 +130,7 @@ const TableTemplate = <T extends AnyObject>({
                       )}
                     </Form.Item>
                   )
-                }
+                },
               )}
               <div className=" col-span-4 flex items-center justify-end gap-2  ">
                 <ExtendedButton onClick={handleReset} danger>
@@ -157,7 +159,7 @@ const TableTemplate = <T extends AnyObject>({
                   type: 'checkbox',
                   onChange: (
                     selectedRowKeys: React.Key[],
-                    selectedRows: T[]
+                    selectedRows: T[],
                   ) => {
                     onSelect(selectedRows)
                   },
@@ -232,7 +234,7 @@ function addKeyToObject(obj: any, keyField?: string): any {
           (child: any) => {
             child.key = `${newObj.key}-${child.key}`
             return child
-          }
+          },
         )
       }
       return newObj

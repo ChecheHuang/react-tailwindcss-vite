@@ -1,5 +1,7 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRef } from 'react'
+
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+
 import { createPost } from '../api/posts'
 import Post from './Post'
 

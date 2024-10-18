@@ -77,15 +77,16 @@
 }
 
 @font-face {
-  font-family: "jf-openhuninn";
-  src: url("./fonts/jf-openhuninn.woff") format("woff"),
-    url("./fonts/jf-openhuninn.ttf") format("truetype"),
-    url("./fonts/jf-openhuninn.eot") format("embedded-opentype");
+  font-family: 'jf-openhuninn';
+  src:
+    url('./fonts/jf-openhuninn.woff') format('woff'),
+    url('./fonts/jf-openhuninn.ttf') format('truetype'),
+    url('./fonts/jf-openhuninn.eot') format('embedded-opentype');
 }
 
 body {
   margin: 0;
-  font-family: "jf-openhuninn" !important;
+  font-family: 'jf-openhuninn' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -102,13 +103,13 @@ img {
 }
 
 .scroll_y {
-  @apply overflow-y-auto scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-thin;
+  @apply overflow-y-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-900;
 }
 
 .scroll_x {
-  @apply overflow-x-auto scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-thin;
+  @apply overflow-x-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-900;
 }
 
 .absolute_center {
-  @apply absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply absolute left-1/2 -translate-x-1/2 -translate-y-1/2 transform;
 }

@@ -1,7 +1,10 @@
 import React from 'react'
-import Modal from './Modal'
+
 import { Tab } from '@headlessui/react'
+
 import { cn } from '@/lib/utils'
+
+import Modal from './Modal'
 
 interface NextStepModalProps {
   isOpen?: boolean
@@ -45,7 +48,7 @@ const NextStepModal: React.FC<NextStepModalProps> = ({
                       'w-full rounded-lg py-2.5  font-medium leading-5 text-sm',
                       selected
                         ? 'bg-white shadow text-primary'
-                        : '  opacity-50 hover:bg-white/[0.12] hover:text-warning'
+                        : '  opacity-50 hover:bg-white/[0.12] hover:text-warning',
                     )
                   }
                 >
@@ -63,7 +66,7 @@ const NextStepModal: React.FC<NextStepModalProps> = ({
                   <Tab.Panel
                     key={idx}
                     className={cn(
-                      'rounded-xl bg-white p-3 flex flex-col gap-2'
+                      'rounded-xl bg-white p-3 flex flex-col gap-2',
                     )}
                   >
                     {options.map((option: string, index: number) => {
@@ -81,7 +84,7 @@ const NextStepModal: React.FC<NextStepModalProps> = ({
                               }}
                               className={cn(
                                 'rounded-md  w-full btn  btn-primary text-base-100 ',
-                                !isActive && 'btn-outline '
+                                !isActive && 'btn-outline ',
                               )}
                             >
                               {option}

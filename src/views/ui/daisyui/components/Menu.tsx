@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
 import clsx from 'clsx'
+import React, { useState } from 'react'
+
 import CountriesAutocomplete from './CountriesAutocomplete'
+
 interface MenuItem {
   key: string
   type: string
@@ -52,7 +54,7 @@ const MenuInside: React.FC<MenuInsideProps> = ({
           <div
             className={clsx(
               `focus:bg-transparent`,
-              key === currentPage && 'active hover:bg-black '
+              key === currentPage && 'active hover:bg-black ',
             )}
             onClick={() => handleLink(key)}
           >

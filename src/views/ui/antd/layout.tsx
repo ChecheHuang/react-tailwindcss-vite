@@ -1,11 +1,13 @@
-import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
 import Aside from './components/Aside'
 import Header from './components/Header'
 import { useWindowInfo } from './hooks/useHook'
 import AntdProvider from './provider/AntdProvider'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 60 * 5 } },
 })

@@ -1,6 +1,8 @@
 import { FC, Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
 import { MdOutlineWbSunny } from 'react-icons/md'
+
+import { Menu, Transition } from '@headlessui/react'
+
 const daisyTheme = [
   'mytheme',
   'light',

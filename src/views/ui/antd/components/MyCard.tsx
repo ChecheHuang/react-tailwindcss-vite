@@ -1,6 +1,6 @@
-import React from 'react'
 import { Card as AntdCard } from 'antd'
 import { CardProps } from 'antd/lib/card'
+import React from 'react'
 
 type MyCardProps = CardProps & {
   // Add any additional custom props here

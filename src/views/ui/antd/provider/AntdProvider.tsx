@@ -1,9 +1,10 @@
-import React, { createContext, useContext } from 'react'
 import { Modal, message } from 'antd'
-import type { MessageInstance } from 'antd/es/message/interface'
-import { ModalStaticFunctions } from 'antd/es/modal/confirm'
 import { ConfigProvider } from 'antd'
 import zhTW from 'antd/es/locale/zh_TW'
+import type { MessageInstance } from 'antd/es/message/interface'
+import { ModalStaticFunctions } from 'antd/es/modal/confirm'
+import React, { createContext, useContext } from 'react'
+
 const AntdContext = createContext<{
   message: MessageInstance
   modal: Omit<ModalStaticFunctions, 'warn'>

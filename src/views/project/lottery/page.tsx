@@ -1,13 +1,14 @@
+import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import { ToastContainer } from 'react-toastify'
-import SetPrize from './components/Set/SetPrize'
-import { motion, AnimatePresence } from 'framer-motion'
-import Header from './components/Header/Header'
-import NextStepModal from './components/modals/NextStepModal'
-import SetLotteryList from './components/Set/SetLotteryList'
-import Lottery from './components/Lottery/Lottery'
 import 'react-toastify/dist/ReactToastify.css'
+
+import Header from './components/Header/Header'
+import Lottery from './components/Lottery/Lottery'
+import SetLotteryList from './components/Set/SetLotteryList'
+import SetPrize from './components/Set/SetPrize'
+import NextStepModal from './components/modals/NextStepModal'
 
 enum LotteryState {
   SET,
@@ -78,7 +79,7 @@ const App: React.FC = () => {
                     }
                     removePrize={(id: string) =>
                       setPrizes((prev) =>
-                        [...prev].filter((prize) => prize.id !== id)
+                        [...prev].filter((prize) => prize.id !== id),
                       )
                     }
                     prizes={prizes}

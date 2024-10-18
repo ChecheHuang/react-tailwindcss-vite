@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react'
+import { GiMedallist } from 'react-icons/gi'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+
 import sunnygoLogo from '../../images/logo.png'
 import ChangeTheme from './ChangeTheme'
 import FullScreenButton from './FullScreenButton/FullScreenButton'
 import RecordButton from './RecordButton/RecordButton'
-import { GiMedallist } from 'react-icons/gi'
 
 interface HeaderProps {
   setTheme: (theme: string) => void

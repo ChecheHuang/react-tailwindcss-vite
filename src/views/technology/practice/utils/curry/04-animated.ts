@@ -3,7 +3,7 @@ import { throttle } from './02-throttle'
 declare type InterpolateRage = [number, number]
 export function interpolation(
   rangeA: InterpolateRage,
-  rangeB: InterpolateRage
+  rangeB: InterpolateRage,
 ) {
   const LA = rangeA[1] - rangeA[0]
   const LB = rangeB[1] - rangeB[0]
@@ -52,7 +52,7 @@ class Animated<T> {
         callback(this.getValue())
       },
       tick,
-      last
+      last,
     )
   }
 
@@ -65,7 +65,7 @@ class Animated<T> {
 declare type TimeFN = (
   callback: (a: number) => void,
   tick: number,
-  last: number
+  last: number,
 ) => void
 const raf = setTimeout
 const timer: TimeFN = (callback, tick = 16, last = 300) => {

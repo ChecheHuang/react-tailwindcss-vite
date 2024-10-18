@@ -1,5 +1,7 @@
-import { cn } from '@/lib/utils'
 import React, { forwardRef, HTMLAttributes } from 'react'
+
+import { cn } from '@/lib/utils'
+
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   className?: string
@@ -7,7 +9,7 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 
 const Wrap: React.ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (
   { children, className, ...rest },
-  ref
+  ref,
 ) => {
   return (
     <>

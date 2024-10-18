@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { WinnerType } from './Lottery'
 import * as XLSX from 'xlsx'
+
+import { WinnerType } from './Lottery'
 
 interface WinnerListProps {
   winnerList: WinnerType[]

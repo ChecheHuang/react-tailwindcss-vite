@@ -1,3 +1,4 @@
+import { debounce } from 'lodash'
 import {
   DependencyList,
   EffectCallback,
@@ -6,7 +7,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import {debounce} from 'lodash'
+
 export function useWindowInfo() {
   const [windowInfo, setWindowInfo] = useState({
     windowWidth: window.innerWidth,
@@ -67,8 +68,6 @@ export function usePrevious<T>(value: T): T | undefined {
   }, [value])
   return ref.current
 }
-
-
 
 export const useInput = (
   initialValue: string,

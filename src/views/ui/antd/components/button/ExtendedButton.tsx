@@ -32,7 +32,7 @@ const ExtendedButton: React.FC<ExtendedButtonProps> = ({
 export default ExtendedButton
 
 function isAntdType(
-  type: ExtendedButtonProps['type']
+  type: ExtendedButtonProps['type'],
 ): type is (typeof antdTypes)[number] {
   return antdTypes.includes(type as (typeof antdTypes)[number])
 }

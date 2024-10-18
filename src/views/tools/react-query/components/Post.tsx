@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { getPost } from '../api/posts'
 import { getUser } from '../api/users'
 
@@ -27,8 +28,8 @@ export default function Post({ id }: { id: number }) {
           {userQuery.isLoading
             ? 'Loading User...'
             : userQuery.isError
-            ? 'Error Loading User'
-            : userQuery.data.name}
+              ? 'Error Loading User'
+              : userQuery.data.name}
         </small>
       </h1>
       <p>{postQuery.data.body}</p>

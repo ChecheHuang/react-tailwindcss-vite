@@ -1,5 +1,6 @@
-import { interpolation, combine } from './04-animated'
 import { expect, test } from 'vitest'
+
+import { interpolation, combine } from './04-animated'
 
 test('映射', () => {
   const f = interpolation([0, 1], [0, 100])

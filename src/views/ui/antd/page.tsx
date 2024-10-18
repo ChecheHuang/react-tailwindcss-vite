@@ -1,8 +1,9 @@
+import Card from 'antd/es/card/Card'
+
 import { cn } from '@/lib/utils'
 import { FallOutlined, RiseOutlined } from '@ant-design/icons'
 import { Line, Column } from '@ant-design/plots'
 import type { LineConfig, ColumnConfig } from '@ant-design/plots'
-import Card from 'antd/es/card/Card'
 
 interface Item {
   title: string
@@ -80,7 +81,7 @@ const Item1 = ({ title, number, percent, type }: Item) => {
         <div
           className={cn(
             'ml-2 flex gap-2 rounded-md p-1 text-white',
-            type === 'up' ? 'bg-blue-600' : 'bg-orange-400'
+            type === 'up' ? 'bg-blue-600' : 'bg-orange-400',
           )}
         >
           <Icon />
@@ -92,7 +93,7 @@ const Item1 = ({ title, number, percent, type }: Item) => {
         <span
           className={cn(
             type === 'up' ? 'text-blue-600' : 'text-orange-400',
-            'mx-1'
+            'mx-1',
           )}
         >
           35,000

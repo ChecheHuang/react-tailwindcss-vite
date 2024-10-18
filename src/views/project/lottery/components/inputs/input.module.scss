@@ -1,4 +1,4 @@
-.floatInput:focus+label,
-.floatInput:valid+label {
-    top: 0px;
+.floatInput:focus + label,
+.floatInput:valid + label {
+  top: 0px;
 }

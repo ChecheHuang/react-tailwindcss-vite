@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
-import { store_list } from './db.json'
 import MockAdapter from 'axios-mock-adapter'
+
+import { store_list } from './db.json'
 
 let dbData = [...store_list]
 

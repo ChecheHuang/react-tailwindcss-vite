@@ -53,7 +53,7 @@ const doubleDigits = (civilianTime: ClockTime) =>
   compose(
     prependZero('hours'),
     prependZero('minutes'),
-    prependZero('seconds')
+    prependZero('seconds'),
   )(civilianTime)
 
 export const startTicking = () =>
@@ -65,7 +65,7 @@ export const startTicking = () =>
       convertToCivilianTime,
       doubleDigits,
       formatClock('hh:mm:ss tt'),
-      display(log)
+      display(log),
     ),
-    oneSecond()
+    oneSecond(),
   )

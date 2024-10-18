@@ -1,12 +1,13 @@
-import errorLottie from '@/assets/lottie/error.json'
+import Lottie from 'lottie-react'
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 
-import Lottie from 'lottie-react'
+import errorLottie from '@/assets/lottie/error.json'
+
 import { Button } from './ui/button'
 
 function MyErrorBoundary({ children }: { children: React.ReactNode }) {
-  function fallbackRender({ error,  resetErrorBoundary: fn}: FallbackProps) {
-    const resetErrorBoundary = ()=>{
+  function fallbackRender({ error, resetErrorBoundary: fn }: FallbackProps) {
+    const resetErrorBoundary = () => {
       fn()
       window.location.reload()
     }
@@ -17,12 +18,13 @@ function MyErrorBoundary({ children }: { children: React.ReactNode }) {
         role="alert"
       >
         <p>Something went wrong:</p>
-        <div className="w-full text-center whitespace-pre-wrap" style={{ color: 'red' }}>
+        <div
+          className="w-full text-center whitespace-pre-wrap"
+          style={{ color: 'red' }}
+        >
           {error.message}
         </div>
-        <Button onClick={resetErrorBoundary}>
-          重新載入
-        </Button>
+        <Button onClick={resetErrorBoundary}>重新載入</Button>
         <Lottie
           className="h-[80vh]"
           onClick={resetErrorBoundary}

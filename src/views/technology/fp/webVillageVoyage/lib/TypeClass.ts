@@ -1,8 +1,9 @@
+import { HKT, Kind, Kind2, URIS, URIS2 } from 'fp-ts/HKT'
+
+import { matchE as eitherMatch, matchW } from './Adt'
+import { Either, left, right } from './Either'
 import { List } from './List'
 import { Option, none, some } from './Option'
-import { Either, left, right } from './Either'
-import { HKT, Kind, Kind2, URIS, URIS2 } from 'fp-ts/HKT'
-import { matchE as eitherMatch, matchW } from './Adt'
 
 declare module 'fp-ts/HKT' {
   interface URItoKind<A> {
@@ -35,6 +36,6 @@ const optionFunctor: Functor1<'Option'> = {
   map: (f) =>
     matchW(
       () => none,
-      (a) => some(f(a))
+      (a) => some(f(a)),
     ),
 }

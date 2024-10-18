@@ -1,14 +1,16 @@
 import React, { useMemo } from 'react'
-import { AiFillDelete } from 'react-icons/ai'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
-import defaultPrize from '../../images/defaultPrize.jpeg'
-import { v4 as uuidv4 } from 'uuid'
-import Item from '../Item'
-import { toast } from 'react-toastify'
+import { AiFillDelete } from 'react-icons/ai'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import Input from '../inputs/Input'
-import smallImg from '../../images/small.png'
+import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid'
+
 import { cn } from '@/lib/utils'
+
+import defaultPrize from '../../images/defaultPrize.jpeg'
+import smallImg from '../../images/small.png'
+import Item from '../Item'
+import Input from '../inputs/Input'
 
 interface SetPrizeProps {
   addPrize: (data: PrizeType) => void
@@ -52,7 +54,7 @@ const SetPrize: React.FC<SetPrizeProps> = ({
 
   const total = useMemo(
     () => prizes.reduce((prev, current) => prev + current.quantity, 0),
-    [prizes]
+    [prizes],
   )
   return (
     <Item title="設定獎項">
@@ -105,7 +107,7 @@ const SetPrize: React.FC<SetPrizeProps> = ({
               <div
                 className={cn(
                   ' w-full   cursor-pointer overflow-hidden text-ellipsis text-center ',
-                  ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900'
+                  ' transition duration-500 ease-in-out hover:break-words hover:text-orange-900',
                 )}
               >
                 {prize}

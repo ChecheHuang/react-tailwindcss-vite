@@ -1,8 +1,10 @@
-import router, { Route } from '@/router/router'
-import { Link, useLocation } from 'react-router-dom'
 import { Breadcrumb as AntdBreadcrumb } from 'antd'
-import { HomeOutlined } from '@ant-design/icons'
 import React, { memo } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+
+import router, { Route } from '@/router/router'
+import { HomeOutlined } from '@ant-design/icons'
+
 const Breadcrumb: React.FC = () => {
   const location = useLocation()
   const pathSnippets = location.pathname.split('/').filter((i) => i)
@@ -44,7 +46,7 @@ function getValueByPath(map: Map<RegExp, any>, path: string) {
 }
 
 function flattenRoutes(
-  routes: Route[]
+  routes: Route[],
 ): Map<RegExp, { name: string; icon?: JSX.Element }> {
   const flattenedRoutes: Map<RegExp, { name: string; icon?: JSX.Element }> =
     new Map()

@@ -1,5 +1,6 @@
-import { UserSchemaWithGeo } from '../models/User'
 import { z } from 'zod'
+
+import { UserSchemaWithGeo } from '../models/User'
 
 const UserResults = z.array(UserSchemaWithGeo)
 

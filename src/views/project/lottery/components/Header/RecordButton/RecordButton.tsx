@@ -1,8 +1,9 @@
+import Lottie from 'lottie-react'
 import { FC, useState } from 'react'
 import { BsFillRecordBtnFill } from 'react-icons/bs'
-import Lottie from 'lottie-react'
-import record from './record.json'
 import { toast } from 'react-toastify'
+
+import record from './record.json'
 
 const RecordButton: FC = () => {
   const [stream, setStream] = useState<MediaStream | null>(null)

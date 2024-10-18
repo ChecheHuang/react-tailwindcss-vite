@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
@@ -22,7 +23,7 @@ export default function Example() {
           person.name
             .toLowerCase()
             .replace(/\s+/g, '')
-            .includes(query.toLowerCase().replace(/\s+/g, ''))
+            .includes(query.toLowerCase().replace(/\s+/g, '')),
         )
 
   return (

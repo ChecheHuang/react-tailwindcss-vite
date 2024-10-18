@@ -1,7 +1,10 @@
+import { MoonStar, SunMoon } from 'lucide-react'
+
+import { cn } from '@/lib/utils'
+
 import { useDispatch, useSelector } from '../store'
 import { SizeType, changeSize, changeTheme } from '../store/modules/themeSlice'
-import { cn } from '@/lib/utils'
-import { MoonStar, SunMoon } from 'lucide-react'
+
 function Header() {
   const dispatch = useDispatch()
   const redux = useSelector((state) => state.theme)
@@ -30,7 +33,7 @@ function Header() {
           className={cn(
             'btn',
             btnClassName.get(size),
-            size === SizeType.small && 'btn-active'
+            size === SizeType.small && 'btn-active',
           )}
         >
           小
@@ -40,7 +43,7 @@ function Header() {
           className={cn(
             'btn',
             btnClassName.get(size),
-            size === SizeType.middle && 'btn-active'
+            size === SizeType.middle && 'btn-active',
           )}
         >
           中
@@ -50,7 +53,7 @@ function Header() {
           className={cn(
             'btn',
             btnClassName.get(size),
-            size === SizeType.large && 'btn-active'
+            size === SizeType.large && 'btn-active',
           )}
         >
           大

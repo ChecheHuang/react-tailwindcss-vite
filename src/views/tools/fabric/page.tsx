@@ -1,10 +1,11 @@
-import { useInput } from '@/hooks/useHook'
 import { Button, Popover, Input, Select } from 'antd'
 import { fabric } from 'fabric'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LuPenLine } from 'react-icons/lu'
 import { useParams } from 'react-router-dom'
 import { useReactToPrint } from 'react-to-print'
+
+import { useInput } from '@/hooks/useHook'
 
 // fabric.Object.prototype.transparentCorners = false
 // fabric.Object.prototype.cornerColor = 'blue'
@@ -37,7 +38,7 @@ const Page = () => {
         fontFamily: '標楷體',
         fontWeight: 400,
         backgroundColor: 'white',
-      })
+      }),
     )
 
     setOpen(false)
@@ -54,7 +55,7 @@ const Page = () => {
 
   const handleFontChange = (
     type: 'fontFamily' | 'fontWeight',
-    value: string | number
+    value: string | number,
   ) => {
     if (!canvas) return
     const activeObject = canvas.getActiveObject()
@@ -83,7 +84,7 @@ const Page = () => {
         backgroundColor: 'white',
         top: 20,
         left: 830,
-      })
+      }),
     )
   }
 

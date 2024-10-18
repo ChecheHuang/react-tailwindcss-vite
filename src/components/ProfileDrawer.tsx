@@ -1,15 +1,17 @@
-import { Fragment, useState, useEffect } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { IoClose } from 'react-icons/io5'
-import { ArrowBigLeftDashIcon, MenuIcon } from 'lucide-react'
 import type { MenuProps } from 'antd'
 import { Menu } from 'antd'
+import { ArrowBigLeftDashIcon, MenuIcon } from 'lucide-react'
+import { Fragment, useState, useEffect } from 'react'
+import { IoClose } from 'react-icons/io5'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+import { Dialog, Transition } from '@headlessui/react'
+
 import router, { Route } from '@/router/router'
 
 type MenuItem = Required<MenuProps>['items'][number]
 const storageSelectKeys = JSON.parse(
-  sessionStorage.getItem('selectKeys') || '[]'
+  sessionStorage.getItem('selectKeys') || '[]',
 )
 const ProfileDrawer: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,7 +19,7 @@ const ProfileDrawer: React.FC = () => {
   const currentRoute = useLocation()
   const [selectKeys, setSelectKeys] = useState<string[]>(storageSelectKeys)
   const { menu, keyArr } = convertRoutesToMenu(
-    router.filter((value) => !!value.path)
+    router.filter((value) => !!value.path),
   )
   const handleOpenChange: MenuProps['onOpenChange'] = (keys: string[]) => {
     const key = [keys[keys.length - 1]]
@@ -34,7 +36,7 @@ const ProfileDrawer: React.FC = () => {
     }
     sessionStorage.setItem(
       'selectKeys',
-      JSON.stringify([currentRoute.pathname])
+      JSON.stringify([currentRoute.pathname]),
     )
     setSelectKeys([currentRoute.pathname] as string[])
   }, [currentRoute.pathname])

@@ -1,10 +1,12 @@
-import React, { FC, useMemo, useState } from 'react'
-import Item from '../Item'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { cn, getRandom } from '@/lib/utils'
-import { toast } from 'react-toastify'
-import show from '../../images/show.png'
 import { motion } from 'framer-motion'
+import React, { FC, useMemo, useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { toast } from 'react-toastify'
+
+import { cn, getRandom } from '@/lib/utils'
+
+import show from '../../images/show.png'
+import Item from '../Item'
 import { Congratulation, Loading1 } from '../Loading'
 import WinnerList from './WinnerList'
 
@@ -69,7 +71,7 @@ const Lottery: FC<LotteryProps> = ({
         '一次機會即中獎一次',
         () => {
           const winnerFirstIndex = lotteryList.findIndex(
-            (item) => JSON.stringify(item) === JSON.stringify(winner)
+            (item) => JSON.stringify(item) === JSON.stringify(winner),
           )
           const newList = [...lotteryList]
           const [spliceItem] = newList.splice(winnerFirstIndex, 1)
@@ -121,7 +123,7 @@ const Lottery: FC<LotteryProps> = ({
   }
   const createWinner = () => {
     const mustWinner = lotteryList.find(
-      (item) => item['獎品'] === prizes[currentPrizeIndex].prize
+      (item) => item['獎品'] === prizes[currentPrizeIndex].prize,
     )
     const winner =
       isMustWin && mustWinner
@@ -157,7 +159,7 @@ const Lottery: FC<LotteryProps> = ({
                   className={cn(
                     'indicator relative w-full scale-75 cursor-pointer duration-100',
                     currentPrizeIndex === index && ' scale-90',
-                    prize.quantity === 0 && 'pointer-events-none'
+                    prize.quantity === 0 && 'pointer-events-none',
                   )}
                 >
                   <LazyLoadImage
@@ -194,7 +196,7 @@ const Lottery: FC<LotteryProps> = ({
               <div
                 className={cn(
                   ' relative m-2 flex h-[300px] flex-1 items-center  justify-center  overflow-hidden  ',
-                  !isMustWin && 'cursor-pointer'
+                  !isMustWin && 'cursor-pointer',
                 )}
               >
                 {status === Status.READY && (

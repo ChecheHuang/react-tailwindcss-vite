@@ -25,7 +25,7 @@ function readMeta(filePath) {
         let updatedData = data.replace(metaRegex, '')
         const modifiedString = updatedData.replace(
           /icon:\s*([^,\n}]+)/g,
-          "icon: '$1'"
+          "icon: '$1'",
         )
         const jsonMeta = eval(`(${modifiedString})`)
         const res = {
@@ -61,7 +61,7 @@ async function printDirectoryContents(
   result = {
     arr: [],
     importString: '',
-  }
+  },
 ) {
   const files = fs.readdirSync(directory)
   const hasLayout = files.includes('layout.tsx')
@@ -224,7 +224,7 @@ import ${component} from "${path}"`
           if (key) {
             map[key].children = addObjectByPathLength(
               map[key].children,
-              map[filePath]
+              map[filePath],
             )
           } else {
             acc = [...acc, map[filePath]]
@@ -237,7 +237,7 @@ import ${component} from "${path}"`
           } else {
             map[closestLayout].children = addObjectByPathLength(
               map[closestLayout].children,
-              item
+              item,
             )
           }
         },
@@ -297,7 +297,7 @@ function sortArr(arr) {
 function addObjectByPathLength(arr, newObj) {
   arr.sort((a, b) => a.path.length - b.path.length)
   let insertIndex = arr.findIndex(
-    (obj) => obj.path.length >= newObj.path.length
+    (obj) => obj.path.length >= newObj.path.length,
   )
 
   if (insertIndex === -1) {

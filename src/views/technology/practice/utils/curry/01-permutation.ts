@@ -22,7 +22,7 @@ export function permutation(str: string): Array<string> {
       return [set.values().next().value]
     }
     return flatten(
-      [...set].map((char) => R(remove(set, char)).map((perm) => char + perm))
+      [...set].map((char) => R(remove(set, char)).map((perm) => char + perm)),
     )
   }
   return R(new Set([...str]))

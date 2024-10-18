@@ -34,7 +34,7 @@ const divideTwo2: DivideTwo2 = (x) => (x === 0 ? none : some(2 / x))
 
 const composed2 = compose(
   (x: Option<number>) => (isNone(x) ? none : some(increment(x.value))),
-  divideTwo2
+  divideTwo2,
 )
 
 // console.log(composed2(8))

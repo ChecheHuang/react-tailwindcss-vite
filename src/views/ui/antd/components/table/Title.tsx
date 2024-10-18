@@ -1,7 +1,10 @@
 'use client'
+
 import { FC } from 'react'
-import PrevButton from '../button/PrevButton'
+
 import ChangeSizeRadio from '../ChangeSizeRadio'
+import PrevButton from '../button/PrevButton'
+
 interface TitleProps {
   title: string
 }

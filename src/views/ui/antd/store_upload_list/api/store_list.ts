@@ -7,7 +7,7 @@ interface ResponseType {
 }
 
 export const getStoreList = async (
-  filterInfo: FilterInfo
+  filterInfo: FilterInfo,
 ): Promise<ResponseType> => {
   const { _page, _limit, ...rest } = filterInfo
   const total =

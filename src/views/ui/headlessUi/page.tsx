@@ -1,9 +1,10 @@
-import Menu from './components/Menu'
-import AutoComplete from './components/AutoComplete'
-import Select from './components/Select'
 import { useState } from 'react'
-import ConfirmModal from './components/ConfirmModal'
 import { IoTrash } from 'react-icons/io5'
+
+import AutoComplete from './components/AutoComplete'
+import ConfirmModal from './components/ConfirmModal'
+import Menu from './components/Menu'
+import Select from './components/Select'
 
 const HeadlessUI = () => {
   const [confirmOpen, setConfirmOpen] = useState(false)

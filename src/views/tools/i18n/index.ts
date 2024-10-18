@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import HttpBackend, { HttpBackendOptions } from 'i18next-http-backend'
 import ChainedBackend, { ChainedBackendOptions } from 'i18next-chained-backend'
+import HttpBackend, { HttpBackendOptions } from 'i18next-http-backend'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import { initReactI18next } from 'react-i18next'
 
@@ -25,7 +25,7 @@ i18n
         HttpBackend,
         resourcesToBackend(
           (language: string, namespace: string) =>
-            import(`@/views/tools/i18n/locales/${language}/${namespace}.json`)
+            import(`@/views/tools/i18n/locales/${language}/${namespace}.json`),
         ),
       ],
       backendOptions: [

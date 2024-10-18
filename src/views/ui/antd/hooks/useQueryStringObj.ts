@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useUpdateEffect } from 'usehooks-ts'
 
 export default function useQueryStringObj<T>(
-  initialState: T
+  initialState: T,
 ): [T, (newState: T) => void] {
   const [state, setState] = useState<T>(initialState)
   const [params, setParams] = useSearchParams()

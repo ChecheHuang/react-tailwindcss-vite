@@ -191,7 +191,7 @@ export const display = (fns: Display[]) => (bill: Bill) => {
     flatten([
       map(applyTo(bill))(fns),
       //
-    ])
+    ]),
   )
     .pipe(join('\n'))
     .unwrap()
@@ -264,7 +264,7 @@ export function main(products: Product[]) {
             rate: 0.12,
             applyTag: '熱銷飲品',
           }),
-        ])
+        ]),
       )
 
       // 顯示結果
@@ -277,7 +277,7 @@ export function main(products: Product[]) {
           //金額
           displayTotal,
           //
-        ])
+        ]),
       )
       .unwrap()
   )

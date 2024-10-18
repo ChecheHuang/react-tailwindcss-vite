@@ -1,56 +1,56 @@
 // Log Clock Time every Second
-setInterval(logClockTime, 1000);
+setInterval(logClockTime, 1000)
 
 function logClockTime() {
   // Get Time string as civilian time
-  var time = getClockTime();
+  var time = getClockTime()
 
   // Clear the Console and log the time
-  console.clear();
-  console.log(time);
+  console.clear()
+  console.log(time)
 }
 
 type Time = {
-  hours: any;
-  minutes: number | string;
-  seconds: number | string;
-  ampm: string;
-};
+  hours: any
+  minutes: number | string
+  seconds: number | string
+  ampm: string
+}
 function getClockTime() {
   // Get the Current Time
-  var date = new Date();
+  var date = new Date()
 
   // Serialize clock time
   var time: Time = {
     hours: date.getHours(),
     minutes: date.getMinutes(),
     seconds: date.getSeconds(),
-    ampm: "AM",
-  };
+    ampm: 'AM',
+  }
 
   // Convert to civilian time
   if (time.hours == 12) {
-    time.ampm = "PM";
+    time.ampm = 'PM'
   } else if (time.hours > 12) {
-    time.ampm = "PM";
-    time.hours -= 12;
+    time.ampm = 'PM'
+    time.hours -= 12
   }
 
   // Prepend a 0 on the hours to make double digits
   if (time.hours < 10) {
-    time.hours = "0" + time.hours;
+    time.hours = '0' + time.hours
   }
 
   // prepend a 0 on the minutes to make double digits
   if ((time.minutes as number) < 10) {
-    time.minutes = "0" + time.minutes;
+    time.minutes = '0' + time.minutes
   }
 
   // prepend a 0 on the seconds to make double digits
   if ((time.seconds as number) < 10) {
-    time.seconds = "0" + time.seconds;
+    time.seconds = '0' + time.seconds
   }
 
   // Format the clock time as a string "hh:mm:ss tt"
-  return time.hours + ":" + time.minutes + ":" + time.seconds + " " + time.ampm;
+  return time.hours + ':' + time.minutes + ':' + time.seconds + ' ' + time.ampm
 }

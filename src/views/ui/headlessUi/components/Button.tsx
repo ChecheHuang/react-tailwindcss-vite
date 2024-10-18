@@ -1,5 +1,6 @@
-import React from 'react'
 import clsx from 'clsx'
+import React from 'react'
+
 interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined
   fullWidth?: boolean
@@ -44,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
           'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
         !secondary &&
           !danger &&
-          'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600'
+          'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600',
       )}
     >
       {children}

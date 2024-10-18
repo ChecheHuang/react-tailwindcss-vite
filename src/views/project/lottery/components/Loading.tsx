@@ -1,7 +1,8 @@
-import { FC } from 'react'
-import lotties from '../lotties/lottery1.json'
-import congratulation from '../lotties/congratulation2.json'
 import Lottie from 'lottie-react'
+import { FC } from 'react'
+
+import congratulation from '../lotties/congratulation2.json'
+import lotties from '../lotties/lottery1.json'
 
 interface LottieProps {
   className?: string

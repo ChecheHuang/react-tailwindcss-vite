@@ -1,7 +1,9 @@
 'use client'
+
 import { useMotionValue } from 'framer-motion'
-import React, { useState, useEffect } from 'react'
 import { useMotionTemplate, motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+
 import { cn } from '@/lib/utils'
 
 export const EvervaultCard = ({
@@ -34,7 +36,7 @@ export const EvervaultCard = ({
     <div
       className={cn(
         'relative  flex aspect-square  h-full w-full items-center justify-center bg-transparent p-0.5',
-        className
+        className,
       )}
     >
       <div

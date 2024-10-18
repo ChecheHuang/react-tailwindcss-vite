@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
 import type { MenuProps } from 'antd'
 import { Image, Menu } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+
 import { cn } from '@/lib/utils'
 import router, { Route } from '@/router/router'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+
 type MenuItem = Required<MenuProps>['items'][number]
 
 interface AsideProps {
   collapsed: boolean
 }
 const storageSelectKeys = JSON.parse(
-  sessionStorage.getItem('selectKeys') || '[]'
+  sessionStorage.getItem('selectKeys') || '[]',
 )
 const storageOpenKeys = JSON.parse(sessionStorage.getItem('openKeys') || '[]')
 const Aside: React.FC<AsideProps> = ({ collapsed }) => {
@@ -41,7 +43,7 @@ const Aside: React.FC<AsideProps> = ({ collapsed }) => {
     }
     sessionStorage.setItem(
       'selectKeys',
-      JSON.stringify([currentRoute.pathname])
+      JSON.stringify([currentRoute.pathname]),
     )
     setSelectKeys([currentRoute.pathname] as string[])
   }, [currentRoute.pathname])
@@ -49,7 +51,7 @@ const Aside: React.FC<AsideProps> = ({ collapsed }) => {
     <div
       className={cn(
         'max-h-[100vh] overflow-y-scroll bg-[#001529] scrollbar-none duration-300 ease-in-out ',
-        collapsed ? 'w-20' : ' w-[200px]'
+        collapsed ? 'w-20' : ' w-[200px]',
       )}
     >
       <Link to={'/setting'}>

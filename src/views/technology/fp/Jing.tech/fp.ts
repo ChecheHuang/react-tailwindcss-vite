@@ -10,7 +10,7 @@ const pipe_ = <T extends any[], U>(
 ) => {
   const piped = fns.reduce(
     (prevFn, nextFn) => (value: U) => nextFn(prevFn(value)),
-    (value) => value
+    (value) => value,
   )
   return (...args: T) => piped(fn1(...args))
 }
@@ -29,7 +29,7 @@ const concat = curry((symbol, data) => data.concat(symbol))
 const map = curry((transformer, data) => data.map(transformer))
 
 const sortLatitude = sort(
-  (a: any, b: any) => b.address.geo.lat - a.address.geo.lat
+  (a: any, b: any) => b.address.geo.lat - a.address.geo.lat,
 )
 
 // fetch('https://jsonplaceholder.typicode.com/users')
@@ -42,7 +42,7 @@ const sortLatitude = sort(
 
 const responseHandler = compose_(
   map(compose_(concat('!'), get('username'))),
-  sortLatitude
+  sortLatitude,
 )
 
 // fetch('https://jsonplaceholder.typicode.com/users')
@@ -64,7 +64,7 @@ const WHOLE_CHICKEN = [
 ]
 // 全雞上取出雞胸肉
 const grab = curry((part: string, chicken: string[]) =>
-  chicken.find((p: string) => p === part)
+  chicken.find((p: string) => p === part),
 )
 
 // 口味調配
@@ -74,7 +74,7 @@ const addFlavor = curry((flavor: string, part: string) => `${flavor} ${part}`)
 const wrapIt: (item: string) => string = curry((item) => `Wrapped(${item})`)
 
 const product_1 = wrapIt(
-  addFlavor('italianHerbal', grab('breast', WHOLE_CHICKEN))
+  addFlavor('italianHerbal', grab('breast', WHOLE_CHICKEN)),
 )
 
 // const makeItalianHerbalBreast = compose_(

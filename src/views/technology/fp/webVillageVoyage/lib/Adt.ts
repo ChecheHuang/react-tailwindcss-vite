@@ -1,14 +1,16 @@
 import { on } from 'ramda'
+
 import { Either, isLeft, left, right } from './Either'
 import { Cons, List, cons, isNil, nil } from './List'
 import { Option, None, none, some, Some, isNone } from './Option'
+
 // import { match } from 'ts-pattern'
 
 //TODO:option
 
 type MatchW = <A, B, C>(
   onNone: () => B,
-  onSome: (a: A) => C
+  onSome: (a: A) => C,
 ) => (x: Option<A>) => B | C
 
 export const matchW: MatchW = (onNone, onSome) => (x) =>
@@ -18,7 +20,7 @@ const maybeNum: Option<number> = some(15)
 
 const result_ = matchW(
   () => -2,
-  (a: number) => `num is ${a}`
+  (a: number) => `num is ${a}`,
 )(maybeNum)
 
 // console.log(result_)
@@ -26,7 +28,7 @@ const result_ = matchW(
 
 type MatchE = <E, A, B>(
   onLeft: (e: E) => B,
-  onRight: (a: A) => B
+  onRight: (a: A) => B,
 ) => (x: Either<E, A>) => B
 
 export const matchE: MatchE = (onLeft, onRight) => (x) =>
@@ -36,7 +38,7 @@ const errorOrNum: Either<string, number> = left('bad input')
 
 const result__ = matchE(
   (e: string) => `Error happened: ${e}`,
-  (a: number) => `num is ${a}`
+  (a: number) => `num is ${a}`,
 )(errorOrNum)
 // console.log(result__)
 
@@ -44,7 +46,7 @@ const result__ = matchE(
 
 type MatchL = <A, B>(
   onNil: () => B,
-  onCons: (head: A, tail: List<A>) => B
+  onCons: (head: A, tail: List<A>) => B,
 ) => (xs: List<A>) => B
 
 export const matchL: MatchL = (onNil, onCons) => (xs) =>

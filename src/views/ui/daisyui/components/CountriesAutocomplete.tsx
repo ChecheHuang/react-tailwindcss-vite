@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
+import React, { memo, useEffect, useRef, useState } from 'react'
 
 type Props = {
   items: string[]
@@ -20,7 +20,7 @@ const AutoComplete = (props: Props) => {
         {
           'dropdown-open': open,
         },
-        className
+        className,
       )}
       ref={ref}
     >

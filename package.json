@@ -5,9 +5,10 @@
   "homepage": "https://chechehuang.github.io/react-tailwindcss-vite",
   "scripts": {
     "dev": "vite --mode development",
-    "build": "vite build --mode production && tsc",
+    "build": "node --max-old-space-size=4096 ./node_modules/vite/bin/vite.js build --mode production && tsc",
     "preview": "vite preview",
     "prod": "vite --mode production",
+    "lint": "prettier --write . && eslint src --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
     "cm": "git-cz",
     "cma": "git add . && git-cz",
@@ -91,6 +92,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.5",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/fabric": "^5.3.6",
     "@types/lodash": "^4.14.197",
     "@types/ramda": "^0.30.0",
@@ -118,6 +120,7 @@
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.24",
     "prettier": "^3.0.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.5.3",
     "sass": "^1.62.1",
     "tailwindcss": "^3.3.2",

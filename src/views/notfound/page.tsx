@@ -1,13 +1,9 @@
-import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react'
+import { Link } from 'react-router-dom'
 
-
-
-import notfound from '@/assets/lottie/notfound.json';
-
+import notfound from '@/assets/lottie/notfound.json'
 
 const NotFoundPage = () => {
-
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-indigo-300 to-purple-500">
       <Lottie animationData={notfound} />
@@ -20,7 +16,5 @@ const NotFoundPage = () => {
     </div>
   )
 }
-
-
 
 export default NotFoundPage

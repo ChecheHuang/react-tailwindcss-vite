@@ -1,5 +1,7 @@
-import { faker } from '@faker-js/faker'
 import { useCallback, useMemo, useState } from 'react'
+
+import { faker } from '@faker-js/faker'
+
 const users = new Array(100).fill(null).map((_, index) => {
   const name = faker.person.fullName()
   const email = faker.internet.email()

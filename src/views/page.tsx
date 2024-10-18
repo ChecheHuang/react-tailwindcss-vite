@@ -1,8 +1,10 @@
-import router, { Route } from '@/router/router'
 import { Link } from 'react-router-dom'
+
+import router, { Route } from '@/router/router'
+
 function Home() {
   const displayRouter = router.filter(
-    (route) => route.name !== '/' && route.name !== 'Not Found'
+    (route) => route.name !== '/' && route.name !== 'Not Found',
   )
   return (
     <div className="h-screen w-screen">

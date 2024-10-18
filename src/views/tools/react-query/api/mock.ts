@@ -1,6 +1,8 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
+
 import { users as getUsers, posts as getPostsData } from './db.json'
+
 export const mock = new MockAdapter(axios)
 
 mock.onGet(/http:\/\/localhost:3000\/users\/\d+/).reply((config) => {
@@ -32,7 +34,7 @@ mock.onPost('http://localhost:3000/posts').reply((config) => {
 function paginateArray(
   array: any[],
   _page = '1',
-  _limit = array.length.toString()
+  _limit = array.length.toString(),
 ) {
   const page = parseInt(_page, 10)
   const limit = parseInt(_limit, 10)

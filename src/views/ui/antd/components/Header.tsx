@@ -1,11 +1,14 @@
+import { Button, Dropdown, MenuProps } from 'antd'
+import { Avatar } from 'antd'
+import { useNavigate } from 'react-router-dom'
+
 import { cn } from '@/lib/utils'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { UserOutlined } from '@ant-design/icons'
-import { Button, Dropdown, MenuProps } from 'antd'
-import { Avatar } from 'antd'
+
 import Breadcrumb from './Breadcrumb'
-import { useNavigate } from 'react-router-dom'
 import ExtendedButton from './button/ExtendedButton'
+
 interface HeaderProps {
   toggleCollapsed: () => void
   collapsed: boolean
@@ -38,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
     <header
       className={cn(
         'flex h-16  items-center justify-between px-3 shadow-slate-500 bg-white	',
-        className
+        className,
       )}
     >
       <div className="flex gap-10">

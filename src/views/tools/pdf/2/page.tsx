@@ -1,26 +1,23 @@
+import { Button } from 'antd'
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.js?url'
 import React from 'react'
 import { useState } from 'react'
+
 //顯示
 import { Worker } from '@react-pdf-viewer/core'
 import { Viewer, ScrollMode } from '@react-pdf-viewer/core'
+import { LayerRenderStatus } from '@react-pdf-viewer/core'
 import '@react-pdf-viewer/core/lib/styles/index.css'
+import '@react-pdf-viewer/core/lib/styles/index.css'
+import { getFilePlugin } from '@react-pdf-viewer/get-file'
+//頁數
+import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation'
+import '@react-pdf-viewer/page-navigation/lib/styles/index.css'
+import { scrollModePlugin } from '@react-pdf-viewer/scroll-mode'
 //放大縮小
 import { zoomPlugin } from '@react-pdf-viewer/zoom'
 
-//頁數
-import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation'
 import file from '../1.pdf'
-
-import '@react-pdf-viewer/core/lib/styles/index.css'
-import '@react-pdf-viewer/page-navigation/lib/styles/index.css'
-
-import { scrollModePlugin } from '@react-pdf-viewer/scroll-mode'
-
-import { getFilePlugin } from '@react-pdf-viewer/get-file'
-
-import { LayerRenderStatus } from '@react-pdf-viewer/core'
-import { Button } from 'antd'
 
 function TestPage() {
   const [pdfFile, setPdfFile] = useState<null | string>(file)
@@ -97,7 +94,7 @@ function TestPage() {
         <CurrentScale>
           {(props) => (
             <div className="flex items-center">{`${Math.round(
-              props.scale * 100
+              props.scale * 100,
             )}%`}</div>
           )}
         </CurrentScale>

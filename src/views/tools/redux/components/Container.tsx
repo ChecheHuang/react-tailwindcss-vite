@@ -1,5 +1,7 @@
-import { useSelector } from '../store'
 import { cn } from '@/lib/utils'
+
+import { useSelector } from '../store'
+
 function Container() {
   const theme = useSelector((state) => state.theme.theme)
   console.log('rerender')
@@ -9,7 +11,7 @@ function Container() {
         'flex-1 w-full',
         theme === 'dark'
           ? ' bg-slate-800 text-white'
-          : 'bg-white text-slate-800'
+          : 'bg-white text-slate-800',
       )}
     ></div>
   )

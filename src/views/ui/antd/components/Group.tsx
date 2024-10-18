@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import { HTMLAttributes, useMemo } from 'react'
+
+import { cn } from '@/lib/utils'
 
 interface GroupProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -34,7 +35,7 @@ const Group: React.FC<GroupProps> & {
           !notGlobalCol && 'grid gap-x-3',
           'grid-cols-2',
           !unstyled && 'mb-10 rounded-lg  p-2 shadow-lg shadow-slate-500/40 ',
-          className
+          className,
         )}
         {...rest}
       >

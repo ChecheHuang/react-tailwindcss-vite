@@ -1,7 +1,10 @@
 import { ButtonProps } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import ExtendedButton from './ExtendedButton'
+
 import { cn } from '@/lib/utils'
+
+import ExtendedButton from './ExtendedButton'
+
 interface PrevButtonProps extends ButtonProps {
   onClick?: React.MouseEventHandler<HTMLElement>
   className?: string

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 interface TokenState {
   token?: string
   route?: RoleData
@@ -45,7 +46,7 @@ export const userSlice = createSlice({
         token?: string
         route?: RoleData
         user?: User
-      }>
+      }>,
     ) {
       const data = action.payload
       const { token, route, user } = data
