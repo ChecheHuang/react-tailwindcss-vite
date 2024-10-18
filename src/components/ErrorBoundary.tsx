@@ -1,48 +1,46 @@
-import { Component, ReactNode, ErrorInfo, ComponentType } from 'react'
+import errorLottie from '@/assets/lottie/error.json'
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 
-interface ErrorBoundaryProps {
-  Fallback?: ComponentType<{ error: Error }>
-  children: ReactNode
-}
+import Lottie from 'lottie-react'
+import { Button } from './ui/button'
 
-interface ErrorBoundaryState {
-  error: Error | null
-}
+function MyErrorBoundary({ children }: { children: React.ReactNode }) {
+  function fallbackRender({ error,  resetErrorBoundary: fn}: FallbackProps) {
+    const resetErrorBoundary = ()=>{
+      fn()
+      window.location.reload()
+    }
 
-export default class ErrorBoundary extends Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props)
-    this.state = { error: null }
+    return (
+      <div
+        className="flex  flex-col items-center justify-center bg-white"
+        role="alert"
+      >
+        <p>Something went wrong:</p>
+        <div className="w-full text-center whitespace-pre-wrap" style={{ color: 'red' }}>
+          {error.message}
+        </div>
+        <Button onClick={resetErrorBoundary}>
+          重新載入
+        </Button>
+        <Lottie
+          className="h-[80vh]"
+          onClick={resetErrorBoundary}
+          animationData={errorLottie}
+        />
+      </div>
+    )
   }
-
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    return { error }
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    console.error('ErrorBoundary caught an error:', error, errorInfo)
-  }
-
-  render() {
-    const { error } = this.state
-    const { children, Fallback } = this.props
-    if (error && !Fallback) return <ErrorScreen error={error} />
-    if (error && Fallback) return <Fallback error={error} />
-    return children
-  }
-}
-
-interface ErrorScreenProps {
-  error: Error
-}
-
-function ErrorScreen({ error }: ErrorScreenProps) {
   return (
-    <div>
-      <h3>{error.message}</h3>
-    </div>
+    <ErrorBoundary
+      fallbackRender={fallbackRender}
+      onReset={(details) => {
+        // Reset the state of your app so the error doesn't happen again
+      }}
+    >
+      {children}
+    </ErrorBoundary>
   )
 }
+
+export default MyErrorBoundary

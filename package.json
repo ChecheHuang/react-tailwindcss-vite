@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build --mode production && tsc",
-    "preview": "vite preview", 
+    "preview": "vite preview",
     "prod": "vite --mode production",
     "prepare": "husky install",
     "cm": "git-cz",
@@ -70,6 +70,7 @@
     "react-datepicker": "^4.12.0",
     "react-day-picker": "^8.8.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.1.1",
     "react-hook-form": "^7.45.4",
     "react-i18next": "^14.1.1",
     "react-icons": "^4.9.0",
