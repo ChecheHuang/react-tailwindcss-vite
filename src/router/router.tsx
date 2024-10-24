@@ -9,12 +9,6 @@ const router: Route[] = [
     "name": "project",
     "children": [
       {
-        "path": "/project/test",
-        "element": LazyLoad(import('@/views/project/test/page')),
-        "label": "test",
-        "name": "test"
-      },
-      {
         "path": "/project/lottery",
         "element": LazyLoad(import('@/views/project/lottery/page')),
         "label": "lottery",
