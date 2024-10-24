@@ -30,11 +30,11 @@ export default function useQueryStringObj<T>(
   useUpdateEffect(() => {
     if (typeof state === 'function') {
       setState((prevState) => (state as Callback<T>)(prevState))
-    } else {
-      setParams(
-        removeUndefinedAndNullAndEmpty(state as Record<string | number, any>),
-      )
+      return
     }
+    setParams(
+      removeUndefinedAndNullAndEmpty(state as Record<string | number, any>),
+    )
   }, [state])
 
   return [state, setState]

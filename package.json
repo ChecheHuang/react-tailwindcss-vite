@@ -110,6 +110,7 @@
     "commitlint-config-cz": "^0.13.3",
     "cz-customizable": "^7.0.0",
     "daisyui": "^3.0.3",
+    "eruda": "^3.4.0",
     "eslint": "^8.42.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.27.5",

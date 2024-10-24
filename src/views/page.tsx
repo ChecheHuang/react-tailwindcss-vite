@@ -9,15 +9,17 @@ function Home() {
   return (
     <div className="h-screen w-screen">
       <div className="flex gap-2 flex-wrap w-full p-4">
-        {flattenRoutes(displayRouter).map((route) => (
-          <Link
-            className="border-2 shadow-lg btn btn-ghost"
-            key={route.path}
-            to={route.path}
-          >
-            {route.name.replace('/', '')}
-          </Link>
-        ))}
+        {flattenRoutes(displayRouter).map((route, index) => {
+          return (
+            <Link
+              className="border-2 shadow-lg btn btn-ghost"
+              key={index}
+              to={route.path}
+            >
+              {route.name.replace('/', '')}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
