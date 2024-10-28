@@ -1,1 +1,2 @@
-console.log('promise start')
+{
+}

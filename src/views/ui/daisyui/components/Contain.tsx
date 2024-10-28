@@ -5,7 +5,8 @@ import { faker } from '@faker-js/faker'
 const users = new Array(100).fill(null).map((_, index) => {
   const name = faker.person.fullName()
   const email = faker.internet.email()
-  const phone = faker.phone.number('09## ### ###')
+  const phone = faker.phone.number()
+  // const phone = faker.phone.number('09## ### ###')
   const avatar = faker.image.avatar()
 
   return {

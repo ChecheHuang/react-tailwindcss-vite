@@ -4,6 +4,11 @@
     "body": ["console.cuslog(${1})"],
     "description": "custom console"
   },
+  "log": {
+    "prefix": "clg",
+    "body": ["console.log(\"${1}\", ${1})"],
+    "description": "console"
+  },
   "react-template": {
     "prefix": "fc",
     "body": [
@@ -77,5 +82,59 @@
       ""
     ],
     "description": "react layout template"
-  }
+  },
+  "vue-template": {
+		"prefix": "vue",
+		"body": [
+			"<script lang='tsx'>",
+			"type ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props = {",
+			"  ",
+			"}",
+			"export default ({",
+			"    emits: [],",
+			"    setup(props: ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props, { emit, slots }) {",
+			"",
+			"        return () => {",
+			"            return <div>",
+			"                ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}",
+			"            </div>",
+			"        }",
+			"    },",
+			"});",
+			"</script>",
+			"<style lang='scss' scoped></style>"
+		],
+		"description": "vue template2"
+	},
+  "better-comments-todo": {
+    "prefix": "todo",
+    "body": [
+      "/**",
+      " * TODO ${1::}",
+      " */"
+    ]
+  },"better-comments-red": {
+    "prefix": "red",
+    "body": [
+      "/**",
+      " * ! ${1::}",
+      " */"
+    ]
+  },
+  "better-comments-green": {
+    "prefix": "green",
+    "body": [
+      "/**",
+      " * * ${1::}",
+      " */"
+    ]
+  },
+  "better-comments-blue": {
+    "prefix": "blue",
+    "body": [
+      "/**",
+      " * ? ${1::}",
+      " */"
+    ]
+  },
 }

@@ -327,14 +327,23 @@ createRouter()
 function sortObjectsByIndex(arr) {
   arr.sort((a, b) => {
     // 先比較 index 屬性
-    if (a.index !== undefined && b.index !== undefined) {
-      return a.index - b.index
-    } else if (a.index !== undefined) {
+    if (a.index !== undefined && b.index !== undefined) return a.index - b.index
+    if (a.index !== undefined) return -1
+    if (b.index !== undefined) return 1
+    // 如果 index 屬性不存在或都為 undefined，維持原本排序
+
+    // 比較name字首，如果是數字則按照數字排序
+    const aIsNumber = /^\d/.test(a.name)
+    const bIsNumber = /^\d/.test(b.name)
+
+    if (aIsNumber && bIsNumber) {
+      return parseInt(a.name, 10) - parseInt(b.name, 10)
+    } else if (aIsNumber) {
       return -1
-    } else if (b.index !== undefined) {
+    } else if (bIsNumber) {
       return 1
     }
-    // 如果 index 屬性不存在或都為 undefined，維持原本排序
+
     return 0
   })
   arr.forEach((obj) => {
@@ -342,7 +351,6 @@ function sortObjectsByIndex(arr) {
     if (Array.isArray(obj.children)) {
       obj.children = sortObjectsByIndex(obj.children)
     }
-
     // 刪除 index 屬性
     delete obj.index
   })

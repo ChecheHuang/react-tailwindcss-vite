@@ -9,12 +9,6 @@ const router: Route[] = [
     "name": "project",
     "children": [
       {
-        "path": "/project/lottery",
-        "element": LazyLoad(import('@/views/project/lottery/page')),
-        "label": "lottery",
-        "name": "lottery"
-      },
-      {
         "path": "/project/2022F2E/one",
         "element": LazyLoad(import('@/views/project/2022F2E/one/layout')),
         "label": "2021F2E-1",
@@ -27,6 +21,12 @@ const router: Route[] = [
             "name": "week1"
           }
         ]
+      },
+      {
+        "path": "/project/lottery",
+        "element": LazyLoad(import('@/views/project/lottery/page')),
+        "label": "lottery",
+        "name": "lottery"
       }
     ]
   },
@@ -75,28 +75,10 @@ const router: Route[] = [
         "name": "進階大師指南",
         "children": [
           {
-            "path": "/technology/進階大師指南/3切版",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/3切版/page')),
-            "label": "3切版",
-            "name": "3切版"
-          },
-          {
-            "path": "/technology/進階大師指南/8網路知識",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/8網路知識/page')),
-            "label": "8網路知識",
-            "name": "8網路知識"
-          },
-          {
-            "path": "/technology/進階大師指南/7設計思維",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/7設計思維/page')),
-            "label": "7設計思維",
-            "name": "7設計思維"
-          },
-          {
-            "path": "/technology/進階大師指南/4前端架構",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/4前端架構/page')),
-            "label": "4前端架構",
-            "name": "4前端架構"
+            "path": "/technology/進階大師指南/1基礎強化",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/page')),
+            "label": "1基礎強化",
+            "name": "1基礎強化"
           },
           {
             "path": "/technology/進階大師指南/2語言進階",
@@ -105,10 +87,22 @@ const router: Route[] = [
             "name": "2語言進階"
           },
           {
-            "path": "/technology/進階大師指南/1基礎強化",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/page')),
-            "label": "1基礎強化",
-            "name": "1基礎強化"
+            "path": "/technology/進階大師指南/3切版",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/3切版/page')),
+            "label": "3切版",
+            "name": "3切版"
+          },
+          {
+            "path": "/technology/進階大師指南/4前端架構",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/4前端架構/page')),
+            "label": "4前端架構",
+            "name": "4前端架構"
+          },
+          {
+            "path": "/technology/進階大師指南/5前端專案化",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/5前端專案化/page')),
+            "label": "5前端專案化",
+            "name": "5前端專案化"
           },
           {
             "path": "/technology/進階大師指南/6效能最佳化",
@@ -117,10 +111,16 @@ const router: Route[] = [
             "name": "6效能最佳化"
           },
           {
-            "path": "/technology/進階大師指南/5前端專案化",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/5前端專案化/page')),
-            "label": "5前端專案化",
-            "name": "5前端專案化"
+            "path": "/technology/進階大師指南/7設計思維",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/7設計思維/page')),
+            "label": "7設計思維",
+            "name": "7設計思維"
+          },
+          {
+            "path": "/technology/進階大師指南/8網路知識",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/8網路知識/page')),
+            "label": "8網路知識",
+            "name": "8網路知識"
           }
         ]
       },
@@ -151,16 +151,16 @@ const router: Route[] = [
         "name": "pdf",
         "children": [
           {
-            "path": "/tools/pdf/2",
-            "element": LazyLoad(import('@/views/tools/pdf/2/page')),
-            "label": "2",
-            "name": "2"
-          },
-          {
             "path": "/tools/pdf/1",
             "element": LazyLoad(import('@/views/tools/pdf/1/page')),
             "label": "1",
             "name": "1"
+          },
+          {
+            "path": "/tools/pdf/2",
+            "element": LazyLoad(import('@/views/tools/pdf/2/page')),
+            "label": "2",
+            "name": "2"
           }
         ]
       },
