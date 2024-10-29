@@ -35,6 +35,7 @@ function convertRoutesToMenu(routes: Route[]): MenuItem[] {
 }
 
 const menu = convertRoutesToMenu(router)
+console.log(menu)
 
 // 使用這個函數來處理你的 router 配置
 

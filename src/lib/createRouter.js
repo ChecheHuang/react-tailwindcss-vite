@@ -336,13 +336,9 @@ function sortObjectsByIndex(arr) {
     const aIsNumber = /^\d/.test(a.name)
     const bIsNumber = /^\d/.test(b.name)
 
-    if (aIsNumber && bIsNumber) {
-      return parseInt(a.name, 10) - parseInt(b.name, 10)
-    } else if (aIsNumber) {
-      return -1
-    } else if (bIsNumber) {
-      return 1
-    }
+    if (aIsNumber && bIsNumber) return parseInt(a.name, 10) - parseInt(b.name, 10)
+     if (aIsNumber) return -1
+     if (bIsNumber) return 1
 
     return 0
   })
