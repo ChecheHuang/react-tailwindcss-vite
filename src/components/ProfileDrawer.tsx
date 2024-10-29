@@ -9,18 +9,50 @@ import { Dialog, Transition } from '@headlessui/react'
 
 import router, { Route } from '@/router/router'
 
-type MenuItem = Required<MenuProps>['items'][number]
+// 使用這個函數來處理你的 router 配置
+const keyArr = Array.from(
+  new Set(
+    flattenRoutes(router).filter(
+      (path) => !path.includes(':') && !['', '/*'].includes(path),
+    ),
+  ),
+)
+
+function convertRoutesToMenu(routes: Route[]): MenuItem[] {
+  return routes.reduce<MenuItem[]>((menu, route) => {
+    if (route.isHidden || route.path.includes(':')) return menu
+
+    const { path, label, children } = route
+    const menuItem: MenuItem = {
+      key: path + (children ? '/layout' : ''),
+      label: label,
+      children: children ? convertRoutesToMenu(children) : undefined,
+    }
+
+    menu.push(menuItem)
+    return menu
+  }, [])
+}
+
+const menu = convertRoutesToMenu(router)
+
+// 使用這個函數來處理你的 router 配置
+
+type MenuItem = {
+  key: string
+  label: string
+  children?: MenuItem[]
+}
+// type MenuItem = Required<MenuProps>['items'][number]
 const storageSelectKeys = JSON.parse(
   sessionStorage.getItem('selectKeys') || '[]',
 )
 const ProfileDrawer: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const navigate = useNavigate()
   const currentRoute = useLocation()
   const [selectKeys, setSelectKeys] = useState<string[]>(storageSelectKeys)
-  const { menu, keyArr } = convertRoutesToMenu(
-    router.filter((value) => !!value.path),
-  )
+
   const handleOpenChange: MenuProps['onOpenChange'] = (keys: string[]) => {
     const key = [keys[keys.length - 1]]
     sessionStorage.setItem('openKeys', JSON.stringify(key))
@@ -31,15 +63,14 @@ const ProfileDrawer: React.FC = () => {
     setSelectKeys([e.key] as string[])
   }
   useEffect(() => {
-    if (!keyArr.includes(currentRoute.pathname)) {
-      return
-    }
+    if (!keyArr.includes(currentRoute.pathname)) return
     sessionStorage.setItem(
       'selectKeys',
       JSON.stringify([currentRoute.pathname]),
     )
     setSelectKeys([currentRoute.pathname] as string[])
   }, [currentRoute.pathname])
+
   return (
     <>
       <button
@@ -118,44 +149,17 @@ const ProfileDrawer: React.FC = () => {
 
 export default ProfileDrawer
 
-function convertRoutesToMenu(routes: Route[]): {
-  menu: MenuItem[]
-  keyArr: string[]
-} {
-  const keyArr: string[] = []
-  function flattenKeysRecursive(routes: Route[]) {
-    routes.forEach((route) => {
-      if (!route.isHidden && !route.path.includes(':')) {
-        if (!keyArr.includes(route.path)) {
-          keyArr.push(route.path)
-        }
-      }
+function flattenRoutes(routes: Route[]): string[] {
+  const paths: string[] = []
+
+  function recurse(routeArray: Route[]) {
+    for (const route of routeArray) {
+      paths.push(route.path)
       if (route.children) {
-        flattenKeysRecursive(route.children)
+        recurse(route.children)
       }
-    })
+    }
   }
-
-  const menu = routes.reduce<MenuItem[]>((menu, route) => {
-    if (route.isHidden || route.path.includes(':')) {
-      return menu
-    }
-
-    const { path, label, icon, children } = route
-    const menuItem: MenuItem = {
-      key: children ? path + '/layout' : path,
-      icon,
-      label: label.replace('/', ''),
-      ...(children && { children: convertRoutesToMenu(children).menu }),
-    }
-    if (!children && !!path) {
-      keyArr.push(path)
-    }
-
-    return [...menu, menuItem]
-  }, [])
-
-  flattenKeysRecursive(routes)
-
-  return { menu, keyArr }
+  recurse(routes)
+  return paths
 }

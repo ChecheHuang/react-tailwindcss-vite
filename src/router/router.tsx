@@ -37,6 +37,26 @@ const router: Route[] = [
     "name": "technology",
     "children": [
       {
+        "path": "/technology/進階大師指南/1基礎強化",
+        "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/layout')),
+        "label": "1基礎強化",
+        "name": "1基礎強化",
+        "children": [
+          {
+            "path": "/technology/進階大師指南/1基礎強化/1this",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/1this/page')),
+            "label": "1this",
+            "name": "1this"
+          },
+          {
+            "path": "/technology/進階大師指南/1基礎強化/2closure",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/2closure/page')),
+            "label": "2closure",
+            "name": "2closure"
+          }
+        ]
+      },
+      {
         "path": "/technology/fp",
         "element": LazyLoad(import('@/views/technology/fp/layout')),
         "label": "fp",
@@ -74,12 +94,6 @@ const router: Route[] = [
         "label": "進階大師指南",
         "name": "進階大師指南",
         "children": [
-          {
-            "path": "/technology/進階大師指南/1基礎強化",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/page')),
-            "label": "1基礎強化",
-            "name": "1基礎強化"
-          },
           {
             "path": "/technology/進階大師指南/2語言進階",
             "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/page')),
