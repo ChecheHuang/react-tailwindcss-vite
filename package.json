@@ -12,12 +12,10 @@
     "prepare": "husky install",
     "cm": "git-cz",
     "cma": "git add . && git-cz",
-    "route": "node ./src/lib/createRouter.js",
+    "route": "node scripts/createRouter.js ",
     "preghp": "npm run build",
     "ghp": "gh-pages -d dist",
-    "test": "vitest",
-    "route1": "node scripts/createRouter.js "
-
+    "test": "vitest"
   },
   "dependencies": {
     "@ant-design/charts": "^1.4.2",

@@ -22,10 +22,10 @@ function convertRoutesToMenu(routes: Route[]): MenuItem[] {
   return routes.reduce<MenuItem[]>((menu, route) => {
     if (route.isHidden || route.path.includes(':')) return menu
 
-    const { path, label, children } = route
+    const { path, name, children } = route
     const menuItem: MenuItem = {
       key: path + (children ? '/layout' : ''),
-      label: label,
+      label: name.split('/').reverse()[0],
       children: children ? convertRoutesToMenu(children) : undefined,
     }
 
@@ -35,7 +35,6 @@ function convertRoutesToMenu(routes: Route[]): MenuItem[] {
 }
 
 const menu = convertRoutesToMenu(router)
-console.log(menu)
 
 // 使用這個函數來處理你的 router 配置
 
@@ -44,7 +43,6 @@ type MenuItem = {
   label: string
   children?: MenuItem[]
 }
-// type MenuItem = Required<MenuProps>['items'][number]
 const storageSelectKeys = JSON.parse(
   sessionStorage.getItem('selectKeys') || '[]',
 )

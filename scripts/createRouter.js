@@ -73,7 +73,7 @@ const router: Route[] = ${JSON.stringify(
       .replace(/"(<[^>]+>)"/g, '$1')
       .replace(/("icon":\s*)"([^"]*)"/g, '$1<$2/>')}
 export default router
-interface Route {
+export interface Route {
   path: string
   element: JSX.Element
   name: string
