@@ -1,12 +1,16 @@
 {
   "console": {
     "prefix": "clgg",
-    "body": ["console.cuslog(${1})"],
+    "body": [
+      "console.cuslog(${1})"
+    ],
     "description": "custom console"
   },
   "log": {
-    "prefix": "clg",
-    "body": ["console.log(\"${1}\", ${1})"],
+    "prefix": "log",
+    "body": [
+      "console.log(\"${1}\", ${1})"
+    ],
     "description": "console"
   },
   "react-template": {
@@ -84,28 +88,28 @@
     "description": "react layout template"
   },
   "vue-template": {
-		"prefix": "vue",
-		"body": [
-			"<script lang='tsx'>",
-			"type ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props = {",
-			"  ",
-			"}",
-			"export default ({",
-			"    emits: [],",
-			"    setup(props: ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props, { emit, slots }) {",
-			"",
-			"        return () => {",
-			"            return <div>",
-			"                ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}",
-			"            </div>",
-			"        }",
-			"    },",
-			"});",
-			"</script>",
-			"<style lang='scss' scoped></style>"
-		],
-		"description": "vue template2"
-	},
+    "prefix": "vue",
+    "body": [
+      "<script lang='tsx'>",
+      "type ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props = {",
+      "  ",
+      "}",
+      "export default ({",
+      "    emits: [],",
+      "    setup(props: ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}Props, { emit, slots }) {",
+      "",
+      "        return () => {",
+      "            return <div>",
+      "                ${1:${TM_FILENAME_BASE/\\.(jsx|tsx)$//}}",
+      "            </div>",
+      "        }",
+      "    },",
+      "});",
+      "</script>",
+      "<style lang='scss' scoped></style>"
+    ],
+    "description": "vue template2"
+  },
   "better-comments-todo": {
     "prefix": "todo",
     "body": [
@@ -113,7 +117,8 @@
       " * TODO ${1::}",
       " */"
     ]
-  },"better-comments-red": {
+  },
+  "better-comments-red": {
     "prefix": "red",
     "body": [
       "/**",
@@ -137,4 +142,17 @@
       " */"
     ]
   },
+  "scope": {
+    "prefix": "scope",
+    "body": [
+      "  {",
+      "    /**",
+      "     * TODO :$1",
+      "     */",
+      "    ;(function () {",
+      "      ",
+      "    })()",
+      "  }"
+    ]
+  }
 }

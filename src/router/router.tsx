@@ -141,11 +141,6 @@ const router: Route[] = [
     ]
   },
   {
-    "path": "/notfound",
-    "element": LazyLoad(import('@/views/notfound/page')),
-    "name": "/notfound"
-  },
-  {
     "path": "/technology",
     "element": LazyLoad(import('@/views/technology/layout')),
     "name": "/technology",
@@ -186,11 +181,6 @@ const router: Route[] = [
             "path": "/technology/進階大師指南/3切版",
             "element": LazyLoad(import('@/views/technology/進階大師指南/3切版/page')),
             "name": "/technology/進階大師指南/3切版"
-          },
-          {
-            "path": "/technology/進階大師指南/2語言進階",
-            "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/page')),
-            "name": "/technology/進階大師指南/2語言進階"
           },
           {
             "path": "/technology/進階大師指南/4前端架構",
@@ -240,8 +230,31 @@ const router: Route[] = [
             "name": "/technology/進階大師指南/1基礎強化/2closure"
           }
         ]
+      },
+      {
+        "path": "/technology/進階大師指南/2語言進階",
+        "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/layout')),
+        "name": "/technology/進階大師指南/2語言進階",
+        "children": [
+          {
+            "path": "/technology/進階大師指南/2語言進階/5非同步不可怕",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/5非同步不可怕/page')),
+            "name": "/technology/進階大師指南/2語言進階/5非同步不可怕"
+          },
+          {
+            "path": "/technology/進階大師指南/2語言進階/6手寫Promise",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/6手寫Promise/page')),
+            "name": "/technology/進階大師指南/2語言進階/6手寫Promise"
+          }
+        ]
       }
     ]
+  },
+  {
+    "path": "/*",
+    "element": LazyLoad(import('@/views/404/page')),
+    "name": "Not Found",
+    "isHidden": true
   }
 ]
 export default router
