@@ -47,7 +47,7 @@ const storageSelectKeys = JSON.parse(
   sessionStorage.getItem('selectKeys') || '[]',
 )
 const ProfileDrawer: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
   const currentRoute = useLocation()
   const [selectKeys, setSelectKeys] = useState<string[]>(storageSelectKeys)

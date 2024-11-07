@@ -9,9 +9,9 @@ import App from './App'
 
 eruda.init()
 
+// eruda.show()
 document.addEventListener('click', () => {
-  // eruda.show()
-  // eruda.hide()
+  eruda.hide()
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

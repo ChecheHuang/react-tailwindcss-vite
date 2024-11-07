@@ -225,6 +225,11 @@ const router: Route[] = [
             "name": "/technology/進階大師指南/1基礎強化/1this"
           },
           {
+            "path": "/technology/進階大師指南/1基礎強化/3實現api",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/3實現api/page')),
+            "name": "/technology/進階大師指南/1基礎強化/3實現api"
+          },
+          {
             "path": "/technology/進階大師指南/1基礎強化/2closure",
             "element": LazyLoad(import('@/views/technology/進階大師指南/1基礎強化/2closure/page')),
             "name": "/technology/進階大師指南/1基礎強化/2closure"

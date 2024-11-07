@@ -19,7 +19,7 @@ function MyErrorBoundary({ children }: { children: React.ReactNode }) {
       >
         <p>Something went wrong:</p>
         <div
-          className="w-full text-center whitespace-pre-wrap"
+          className="w-full text-center whitespace-pre-wrap overflow-auto"
           style={{ color: 'red' }}
         >
           {error.message}
