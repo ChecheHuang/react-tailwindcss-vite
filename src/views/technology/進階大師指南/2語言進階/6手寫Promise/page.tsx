@@ -1,8 +1,56 @@
-import { log } from 'fabric/fabric-impl'
-
+/**
+ * Promise 是一個用於處理異步操作的對象，代表一個尚未完成但預期將來會完成的操作。
+ *
+ * Promise 特性:
+ * 1. 狀態 (State):
+ *    - pending: 初始狀態，既不是成功也不是失敗
+ *    - fulfilled: 操作成功完成
+ *    - rejected: 操作失敗
+ *    狀態一旦改變就不能再變，只能從 pending 變為 fulfilled 或 rejected
+ *
+ * 2. 不可逆性:
+ *    - Promise 狀態的改變是單向的，不可逆轉
+ *    - 一旦從 pending 轉變為 fulfilled 或 rejected，就不能再改變
+ *
+ * 3. 異步性:
+ *    - Promise 是異步編程的一種解決方案
+ *    - then() 方法返回的是一個新的 Promise 實例
+ *    - 支持鏈式調用，可以解決回調地獄問題
+ *
+ * 4. 錯誤處理:
+ *    - 使用 .catch() 方法捕獲錯誤
+ *    - 在執行構造函數時可以捕獲同步錯誤
+ *    - 在 then() 中可以捕獲異步錯誤
+ *
+ * 5. 值穿透:
+ *    - 當 then() 接收的不是函數時，會發生值穿透
+ *    - 將值傳遞給鏈中的下一個 then()
+ *
+ * 6. 微任務隊列:
+ *    - Promise 的回調函數會被加入微任務隊列
+ *    - 優先級高於宏任務（setTimeout, setInterval 等）
+ *
+ * @example
+ * ```typescript
+ * new Promise((resolve, reject) => {
+ *   // 異步操作
+ *   if (success) {
+ *     resolve(value);
+ *   } else {
+ *     reject(error);
+ *   }
+ * })
+ * .then(value => {
+ *   // 處理成功狀態
+ * })
+ * .catch(error => {
+ *   // 處理失敗狀態
+ * });
+ * ```
+ */
 const Page = () => {
   /**
-   * ! https://juejin.cn/post/7043758954496655397?from=search-suggest
+   * TODO : https://juejin.cn/post/7043758954496655397?from=search-suggest
    */
   {
     type PromiseState = 'pending' | 'fulfilled' | 'rejected'
@@ -243,15 +291,6 @@ const Page = () => {
       }
     }
   }
-
-  {
-  }
-
-  return (
-    <>
-      <div>Page</div>
-    </>
-  )
 }
 
 export default Page

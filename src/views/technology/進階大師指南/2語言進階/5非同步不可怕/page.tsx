@@ -1,8 +1,8 @@
 const Page = () => {
+  /**
+   * TODO :Callback Hell Example
+   */
   {
-    /**
-     * TODO :Callback Hell Example
-     */
     ;(async function () {
       function fetchData(callback: (data: string) => void) {
         setTimeout(() => {
@@ -37,11 +37,10 @@ const Page = () => {
       })
     })
   }
-
+  /**
+   * TODO :Promise Example
+   */
   {
-    /**
-     * TODO :Promise Example
-     */
     ;(async function () {
       // * Promise Example
       function fetchDataPromise(): Promise<string> {
@@ -79,11 +78,10 @@ const Page = () => {
         })
     })
   }
-
+  /**
+   * TODO :Async/Await Example
+   */
   {
-    /**
-     * TODO :Async/Await Example
-     */
     ;(async function () {
       async function fetchDataAsync(): Promise<string> {
         return new Promise((resolve) => {
@@ -123,10 +121,10 @@ const Page = () => {
     })
   }
 
+  /**
+   * TODO :Generator Example
+   */
   {
-    /**
-     * TODO :Generator Example
-     */
     ;(async function () {
       function* fetchDataGenerator(): Generator<
         Promise<string>,
@@ -190,10 +188,46 @@ const Page = () => {
     })
   }
 
+  /**
+   * TODO :setTimeout相關考驗
+   */
   {
-    /**
-     * TODO :巨任務與微任務
-     */
+    ;(async function () {
+      console.log('setTimeout相關考驗')
+      //* setTimeout相關考驗示例
+      console.log('1: 開始')
+
+      setTimeout(() => {
+        console.log('5: setTimeout 1')
+      }, 0)
+
+      setTimeout(() => {
+        console.log('6: setTimeout 2')
+      }, 100)
+
+      new Promise((resolve) => {
+        console.log('2: Promise 1')
+        resolve('Promise 1 resolved')
+      }).then((value) => {
+        console.log('4:', value)
+      })
+
+      console.log('3: 結束')
+
+      //* 輸出順序將會是:
+      //* 1: 開始
+      //* 2: Promise 1
+      //* 3: 結束
+      //* 4: Promise 1 resolved
+      //* 5: setTimeout 1
+      //* 6: setTimeout 2
+    })()
+  }
+
+  /**
+   * TODO :巨任務與微任務
+   */
+  {
     ;(function () {
       console.log('1:start here')
 
