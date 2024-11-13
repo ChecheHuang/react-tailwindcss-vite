@@ -92,24 +92,24 @@ const Page = () => {
      * *4. 如果建構函數有返回值,則返回該值,否則返回新建立的物件
      * TODO :建構函數和this
      */
-    ;(function () {
-      function Foo() {
-        this.user = 'lucus'
-        const o = {}
-        return o
-      }
+    // ;(function () {
+    //   function Foo() {
+    //     this.user = 'lucus'
+    //     const o = {}
+    //     return o
+    //   }
 
-      const instance = new Foo()
-      console.log(instance.user) // lucus
+    //   const instance = new Foo()
+    //   console.log(instance.user) // lucus
 
-      function Foo1() {
-        this.user = 'lucus'
-        return 1
-      }
+    //   function Foo1() {
+    //     this.user = 'lucus'
+    //     return 1
+    //   }
 
-      const instance1 = new Foo1()
-      console.log(instance1.user) // lucus
-    })
+    //   const instance1 = new Foo1()
+    //   console.log(instance1.user) // lucus
+    // })
   }
 
   {

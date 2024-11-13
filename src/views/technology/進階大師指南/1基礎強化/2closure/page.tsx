@@ -339,7 +339,7 @@ const Page = () => {
       const foo = () => {
         var a = 2
         function innerFoo() {
-          console.log(c)
+          // console.log(c)
           console.log(a)
         }
         fn = innerFoo

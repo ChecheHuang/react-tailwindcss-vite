@@ -325,14 +325,14 @@ const Page = () => {
         //* 返回綁定後的新函數
         return boundFn
       }
-    })()
+    })
   }
 
   {
     /**
      * TODO :實現apply
      */
-    ;(() => {
+    ;(function () {
       console.log('實現apply')
       //* 擴展 Function 原型，實現自定義的 apply 方法
       Function.prototype.apply = function (context: any, args: any[] = []) {
@@ -372,7 +372,7 @@ const Page = () => {
       //* 測試空上下文
       const globalResult = greet.apply(null, ['Hi', '...'])
       console.log('Global context result:', globalResult)
-    })()
+    })
   }
 
   return (
