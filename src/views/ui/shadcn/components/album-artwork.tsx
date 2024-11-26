@@ -1,6 +1,7 @@
 import { ListMusic, PlusCircle } from 'lucide-react'
 
-import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { cn } from '@/lib/utils'
+import { AspectRatio } from '@/views/ui/shadcn/components/ui/aspect-ratio'
 import {
   ContextMenu,
   ContextMenuContent,
@@ -10,8 +11,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from '@/components/ui/context-menu'
-import { cn } from '@/lib/utils'
+} from '@/views/ui/shadcn/components/ui/context-menu'
 
 import { Album } from '../data/albums'
 import { playlists } from '../data/playlists'
