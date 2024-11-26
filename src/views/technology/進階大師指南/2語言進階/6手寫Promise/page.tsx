@@ -290,6 +290,8 @@ const Page = () => {
       }
     }
   }
+
+  return <div>手寫 Promise</div>
 }
 
 export default Page

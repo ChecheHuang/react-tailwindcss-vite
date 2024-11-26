@@ -108,11 +108,10 @@ function convertRoutesToMenu(routes: Route[]): {
       return menu
     }
 
-    const { path, label, icon, children } = route
+    const { path, icon, children } = route
     const menuItem: MenuItem = {
       key: children ? path + '/layout' : path,
       icon,
-      label,
       ...(children && { children: convertRoutesToMenu(children).menu }),
     }
     if (!children) {
