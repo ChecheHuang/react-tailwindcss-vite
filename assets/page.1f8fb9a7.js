@@ -1,0 +1,1 @@
+import{j as r,h as i}from"./index.4ccdf36a.js";const s=()=>(function(){Function.prototype.bind=Function.prototype.bind||function(t){var n=this,a=Array.prototype.slice.call(arguments,1);return function(){var e=Array.prototype.slice.call(arguments),o=a.concat(e);return n.apply(t,o)}}}(),r(i,{children:r("div",{children:"Page"})}));export{s as default};
