@@ -21,12 +21,14 @@ const router: Route[] = [
             "path": "/ui/antd",
             "element": <UiAntdPage/>,
             "name": "首頁",
+            "label": "首頁",
             "icon": <RedditOutlined/>
           },
           {
             "path": "/ui/antd/store_upload_list",
             "element": LazyLoad(import('@/views/ui/antd/store_upload_list/page')),
-            "name": "表單列表"
+            "name": "表單列表",
+            "label": "表單列表"
           },
           {
             "path": "/ui/antd/store_upload_list/:id",
@@ -132,14 +134,16 @@ const router: Route[] = [
         "name": "/project/lottery"
       },
       {
-        "path": "/project/2022F2E/one",
-        "element": LazyLoad(import('@/views/project/2022F2E/one/layout')),
-        "name": "/project/2022F2E/one",
+        "path": "/project/2021F2E/one",
+        "element": LazyLoad(import('@/views/project/2021F2E/one/layout')),
+        "label": "2021F2E-1",
+        "name": "/project/2021F2E/one",
         "children": [
           {
-            "path": "/project/2022F2E/one",
-            "element": LazyLoad(import('@/views/project/2022F2E/one/page')),
-            "name": "/project/2022F2E/one"
+            "path": "/project/2021F2E/one",
+            "element": LazyLoad(import('@/views/project/2021F2E/one/page')),
+            "label": "week1",
+            "name": "/project/2021F2E/one"
           }
         ]
       }
@@ -280,5 +284,6 @@ export interface Route {
   icon?: JSX.Element
   children?: Route[]
   isHidden?: boolean
+  label?: string
 }
 
