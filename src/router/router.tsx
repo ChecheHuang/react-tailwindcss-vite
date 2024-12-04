@@ -257,6 +257,16 @@ const router: Route[] = [
             "name": "/technology/進階大師指南/2語言進階/5非同步不可怕"
           },
           {
+            "path": "/technology/進階大師指南/2語言進階/7物件導向和原型",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/7物件導向和原型/page')),
+            "name": "/technology/進階大師指南/2語言進階/7物件導向和原型"
+          },
+          {
+            "path": "/technology/進階大師指南/2語言進階/8與時俱進的ES",
+            "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/8與時俱進的ES/page')),
+            "name": "/technology/進階大師指南/2語言進階/8與時俱進的ES"
+          },
+          {
             "path": "/technology/進階大師指南/2語言進階/6手寫Promise",
             "element": LazyLoad(import('@/views/technology/進階大師指南/2語言進階/6手寫Promise/page')),
             "name": "/technology/進階大師指南/2語言進階/6手寫Promise"
