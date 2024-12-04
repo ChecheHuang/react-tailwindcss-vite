@@ -25,7 +25,7 @@ import ${component} from "${path}"`
       initOutputString += isNotLazyImport
       delete meta.isLazy
     }
-    delete meta.label
+    // delete meta.label
 
     const item = {
       path: routePath === '/' ? '' : routePath,
@@ -80,6 +80,7 @@ export interface Route {
   icon?: JSX.Element
   children?: Route[]
   isHidden?: boolean
+  label?: string
 }
 
 `
