@@ -92,13 +92,18 @@ const router: Route[] = [
         "name": "/tools/redux"
       },
       {
+        "path": "/tools/ethers",
+        "element": LazyLoad(import('@/views/tools/ethers/page')),
+        "name": "/tools/ethers"
+      },
+      {
         "path": "/tools/fabric",
         "element": LazyLoad(import('@/views/tools/fabric/page')),
         "name": "/tools/fabric"
       },
       {
         "path": "/tools/context",
-        "element": LazyLoad(import('@/views/tools/context/page')),
+        "element": LazyLoad(import('@/views/tools/ethers/page')),
         "name": "/tools/context"
       },
       {
