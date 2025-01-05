@@ -10,9 +10,9 @@ import {
   User,
 } from 'lucide-react'
 
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
-import { Button } from '@/views/ui/shadcn/components/ui/button'
-import { ScrollArea } from '@/views/ui/shadcn/components/ui/scroll-area'
 
 import { Playlist } from '../data/playlists'
 

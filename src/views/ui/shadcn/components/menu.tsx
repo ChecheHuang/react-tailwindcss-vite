@@ -15,7 +15,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from '@/views/ui/shadcn/components/ui/menubar'
+} from '@/components/ui/menubar'
 
 export function Menu() {
   return (

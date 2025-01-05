@@ -3,7 +3,7 @@ import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 
 import errorLottie from '@/assets/lottie/error.json'
 
-import { Button } from '../views/ui/shadcn/components/ui/button'
+import { Button } from './ui/button'
 
 function MyErrorBoundary({ children }: { children: React.ReactNode }) {
   function fallbackRender({ error, resetErrorBoundary: fn }: FallbackProps) {
