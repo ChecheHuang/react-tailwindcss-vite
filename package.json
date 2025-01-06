@@ -54,6 +54,7 @@
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.10",
     "ethers": "^6.13.4",
     "fabric": "^5.3.0",
@@ -99,6 +100,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.5",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/date-fns": "^2.6.3",
     "@types/fabric": "^5.3.6",
     "@types/lodash": "^4.14.197",
     "@types/ramda": "^0.30.0",
