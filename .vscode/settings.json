@@ -1,14 +1,31 @@
 {
-  "i18n-ally.enabledFrameworks": ["react-i18next"],
+  "i18n-ally.enabledFrameworks": [
+    "react-i18next"
+  ],
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.enabledParsers": ["js", "json"],
-  "i18n-ally.localesPaths": ["src/views/tools/i18n/locales"],
+  "i18n-ally.enabledParsers": [
+    "js",
+    "json"
+  ],
+  "i18n-ally.localesPaths": [
+    "src/views/tools/i18n/locales"
+  ],
   "i18n-ally.displayLanguage": "zh-CN",
   "i18n-ally.extract.ignoredByFiles": {},
   "i18n-ally.extract.keygenStyle": "camelCase",
+  "tabnine.experimentalAutoImports": true,
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Dracula Theme",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#11332A",
     "titleBar.activeBackground": "#18483B",
     "titleBar.activeForeground": "#F6FCFA"
-}
+  }
 }
