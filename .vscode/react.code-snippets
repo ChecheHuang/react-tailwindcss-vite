@@ -13,6 +13,23 @@
     ],
     "description": "console"
   },
+  "aaa": {
+    "prefix": "aaa",
+    "body": [
+      " style={{ background: 'lightblue' }} "
+    ],
+    "description": "aaa"
+  },
+  "IIFE with console.log": {
+    "prefix": "iife",
+    "body": [
+      ";(() => {",
+      "console.log('bennett',\"${1}\", ${1})",
+      "  return null;",
+      "})();"
+    ],
+    "description": "立即執行函式表達式，包含 console.log"
+  },
   "react-template": {
     "prefix": "fc",
     "body": [
