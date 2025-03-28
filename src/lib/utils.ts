@@ -20,9 +20,13 @@ export const createArray = (length: number) => [...Array(length)]
 export const wait = (number: number) =>
   new Promise((resolve) => setTimeout(resolve, number))
 
-export const debounce = (fn: (...args: any[]) => any, ms = 300) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const debounce = <T extends (...args: any[]) => any>(
+  fn: T,
+  ms = 300,
+) => {
   let timeoutId: ReturnType<typeof setTimeout>
-  return function (this: any, ...args: any[]) {
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
     clearTimeout(timeoutId)
     timeoutId = setTimeout(() => fn.apply(this, args), ms)
   }
@@ -40,4 +44,32 @@ export const filterObjectValueByArg = <T extends AnyObject>(
     if (!isSkip) newObj[key] = obj[key]
   }
   return newObj
+}
+
+export function catchError<T>(
+  promise: Promise<T>,
+): Promise<[undefined, T] | [Error]> {
+  return promise
+    .then((data) => {
+      return [undefined, data] as [undefined, T]
+    })
+    .catch((error) => {
+      return [error]
+    })
+}
+
+export function catchErrorTyped<T, E extends new (message?: string) => Error>(
+  promise: Promise<T>,
+  errorsToCatch?: E[],
+): Promise<[undefined, T] | [InstanceType<E>]> {
+  return promise
+    .then((data) => {
+      return [undefined, data] as [undefined, T]
+    })
+    .catch((error) => {
+      if (errorsToCatch == undefined) {
+        return [error]
+      }
+      throw error
+    })
 }
