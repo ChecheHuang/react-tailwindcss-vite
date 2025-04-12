@@ -103,7 +103,7 @@ const router: Route[] = [
       },
       {
         "path": "/tools/context",
-        "element": LazyLoad(import('@/views/tools/ethers/page')),
+        "element": LazyLoad(import('@/views/tools/context/page')),
         "name": "/tools/context"
       },
       {
@@ -120,6 +120,16 @@ const router: Route[] = [
         "path": "/tools/framerMotion",
         "element": LazyLoad(import('@/views/tools/framerMotion/page')),
         "name": "/tools/framerMotion"
+      },
+      {
+        "path": "/tools/react-virtual",
+        "element": LazyLoad(import('@/views/tools/react-virtual/page')),
+        "name": "/tools/react-virtual"
+      },
+      {
+        "path": "/tools/components/step",
+        "element": LazyLoad(import('@/views/tools/components/step/page')),
+        "name": "/tools/components/step"
       }
     ]
   },

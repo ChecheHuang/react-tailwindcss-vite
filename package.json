@@ -50,6 +50,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
+    "@tanstack/react-virtual": "^3.13.11",
     "antd": "^5.8.3",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
