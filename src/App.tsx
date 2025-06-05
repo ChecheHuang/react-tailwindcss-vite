@@ -1,3 +1,4 @@
+import { Inspector, InspectorProps } from 'react-dev-inspector'
 import { useRoutes, HashRouter as BrowserRouter } from 'react-router-dom'
 
 import router from '@/router/router'
@@ -21,6 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes />
         <ProfileDrawer />
+        <Inspector keys={['Ctrl', 'I']} />
       </BrowserRouter>
     </ErrorBoundary>
   )

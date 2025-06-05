@@ -3,9 +3,18 @@ import { defineConfig, loadEnv } from 'vite'
 
 import react from '@vitejs/plugin-react'
 
+import { inspectorServer } from '@react-dev-inspector/vite-plugin'
+
 // https://vitejs.dev/config/
 const baseConfig = {
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: ['@react-dev-inspector/babel-plugin'],
+      },
+    }),
+    inspectorServer(),
+  ],
   base: './',
   build: {
     outDir: 'dist',

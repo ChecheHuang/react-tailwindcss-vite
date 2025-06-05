@@ -99,6 +99,8 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.5",
+    "@react-dev-inspector/babel-plugin": "^2.0.1",
+    "@react-dev-inspector/vite-plugin": "^2.0.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/date-fns": "^2.6.3",
     "@types/fabric": "^5.3.6",
@@ -131,6 +133,7 @@
     "prettier": "^3.0.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.5.3",
+    "react-dev-inspector": "^2.0.1",
     "sass": "^1.62.1",
     "tailwindcss": "^3.3.2",
     "tsx": "^4.19.2",
