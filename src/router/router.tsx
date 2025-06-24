@@ -77,6 +77,11 @@ const router: Route[] = [
         ]
       },
       {
+        "path": "/tools/mcp",
+        "element": LazyLoad(import('@/views/tools/mcp/page')),
+        "name": "/tools/mcp"
+      },
+      {
         "path": "/tools/zod",
         "element": LazyLoad(import('@/views/tools/zod/page')),
         "name": "/tools/zod"
