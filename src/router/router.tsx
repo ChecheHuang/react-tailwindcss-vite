@@ -55,6 +55,11 @@ const router: Route[] = [
     ]
   },
   {
+    "path": "/demo",
+    "element": LazyLoad(import('@/views/demo/page')),
+    "name": "/demo"
+  },
+  {
     "path": "/tools",
     "element": LazyLoad(import('@/views/tools/layout')),
     "name": "/tools",
@@ -288,6 +293,11 @@ const router: Route[] = [
         ]
       }
     ]
+  },
+  {
+    "path": "/demo/demo1",
+    "element": LazyLoad(import('@/views/demo/demo1/page')),
+    "name": "/demo/demo1"
   },
   {
     "path": "/*",
