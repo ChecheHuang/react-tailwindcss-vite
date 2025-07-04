@@ -17,8 +17,8 @@
   "terminal.integrated.env.windows": {},
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "files.autoSave": "afterDelay",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Dracula Theme",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.colorTheme": "Default Dark Modern",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

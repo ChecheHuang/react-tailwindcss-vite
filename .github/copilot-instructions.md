@@ -19,11 +19,13 @@
     *   **錯誤狀態：** 如果非同步操作 (例如 API 呼叫) 導致錯誤，請提早返回並顯示錯誤訊息或元件。
     *   **`if...else` 結構：** 即使在使用 `if...else` 結構時，也要考慮是否可以在 `else` 區塊中提早返回，以避免過度巢狀和簡化程式碼流程。
     *   **Promise 的 `resolve` 和 `reject`：** 在 Promise 中，盡可能避免巢狀的 `if...else` 結構。 在 `reject` 的情況下應立即 `reject`，在條件滿足時立即 `resolve`，避免不必要的程式碼執行。
+    * 如果有變數寫在className內優先import classNames from 'classnames' 然後使用
 
 *   **返回值：**
 
     *   **React 元件：** 從 React 元件提早返回時，返回 `null` 或簡單的訊息/佔位符元件。 避免渲染不完整或損壞的 UI。
     *   **函式：** 根據函式的用途，返回預設值（例如 `null`、`undefined`、`false`、空陣列、空物件）或拋出錯誤（見下文）。
+    * 如果區塊裡面只有一個return則不需要大括弧,直接接在後面
 
 *   **範例：**
 
@@ -44,14 +46,9 @@
 
     // 之後 (透過盡早返回更易於閱讀，減少巢狀結構)
     function processData(input: number): string {
-      if (input <= 0) {
-        return "輸入值必須大於 0"; // 提早返回：處理負數和零
-      }
+      if (input <= 0) return "輸入值必須大於 0"; // 提早返回：處理負數和零
 
-      if (input >= 100) {
-        return "輸入值太大"; // 提早返回：處理大於等於 100 的數字
-      }
-
+      if (input >= 100) return "輸入值太大"; // 提早返回：處理大於等於 100 的數字
       // 一些處理邏輯
       return `處理結果: ${input * 2}`;
     }
