@@ -1,0 +1,1 @@
+import{j as e,h as a}from"./index.32b7d652.js";const r=()=>e(a,{children:e("div",{"data-inspector-line":"8","data-inspector-column":"6","data-inspector-relative-path":"src\\views\\technology\\practice\\page.tsx",children:"Page"})});export{r as default};

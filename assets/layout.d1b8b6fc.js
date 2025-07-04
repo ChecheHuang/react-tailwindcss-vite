@@ -1,0 +1,1 @@
+import{j as t,O as a}from"./index.32b7d652.js";const o=()=>t(a,{"data-inspector-line":"4","data-inspector-column":"9","data-inspector-relative-path":"src\\views\\technology\\layout.tsx"});export{o as default};

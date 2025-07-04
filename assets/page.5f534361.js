@@ -1,0 +1,1 @@
+import{j as u,h as e}from"./index.32b7d652.js";const t=()=>u(e,{children:u("div",{"data-inspector-line":"4","data-inspector-column":"6","data-inspector-relative-path":"src\\views\\technology\\\u9032\u968E\u5927\u5E2B\u6307\u5357\\2\u8A9E\u8A00\u9032\u968E\\8\u8207\u6642\u4FF1\u9032\u7684ES\\page.tsx",children:"Page"})});export{t as default};
